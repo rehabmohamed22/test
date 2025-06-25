@@ -1,0 +1,1589 @@
+{
+	"info": {
+		"_postman_id": "15a8fda4-76a2-4fba-9483-d852cb622f27",
+		"name": "odoo Hospital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37874760",
+		"_collection_link": "https://medicare-team.postman.co/workspace/Medicare~f7f44305-8a78-4ec8-85ef-2e554e11077f/collection/37874760-15a8fda4-76a2-4fba-9483-d852cb622f27?action=share&source=collection_link&creator=37874760"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\":\"Hussien\",  \n  \"email\": \"test@gmail.com\",\n  \"password\": \"aa\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/register",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"mohamed\",  \n  \"email\": \"aaa\",\n  \"password\": \"aaa\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/register",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Feb 2025 09:52:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "132"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"success\": true,\n        \"message\": \"تم تسجيل المستخدم بنجاح\",\n        \"user_id\": 14\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"aa\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/login",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"aaa\",\n  \"password\": \"aaa\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/login",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Feb 2025 11:50:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "282"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "session_id=ff5f6f92e2b7a78515a862c6c283ba61bc83c514; Expires=Tue, 10 Feb 2026 11:50:21 GMT; Max-Age=604800; HttpOnly; Path=/"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"success\": true,\n        \"message\": \"تم تسجيل الدخول بنجاح\",\n        \"user_id\": 14,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNCwiZW1haWwiOiJhYWEiLCJleHAiOjE3MzkyNzQ2MjF9.YQFW2mCMVvmmGGaz9PGiiTrIDZQ38Zo1Jbg_AoRSM2c\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create journal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImFhIiwiZXhwIjoxNzQxNjA5ODE1fQ.pnIiBYXbckJ8roaVsunrIW5H35r91LoQg_Y8ItKOYhI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"move_type\": \"entry\",\n    \"ref\":\"ref7\",\n    \"date\": \"2025-02-18\",\n    \"line_ids\": [\n        [0, 0, {\n            \"account_id\": 336,\n            \"name\": \"Test Line 1\",\n            \"debit\": 100.0,\n            \"credit\": 0.0,\n            \"currency_id\": 1\n        }],\n        [0, 0, {\n            \"account_id\": 327,\n            \"name\": \"Test Line 2\",\n            \"debit\": 0.0,\n            \"credit\": 100.0,\n            \"currency_id\": 1\n        }]\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/account_move/create",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"account_move",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create journal Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"move_type\": \"entry\",\n    \"ref\":\"ref7\",\n    \"date\": \"2025-02-18\",\n    \"line_ids\": [\n        [0, 0, {\n            \"account_id\": 336,\n            \"name\": \"Test Line 1\",\n            \"debit\": 100.0,\n            \"credit\": 0.0,\n            \"currency_id\": 1\n        }],\n        [0, 0, {\n            \"account_id\": 327,\n            \"name\": \"Test Line 2\",\n            \"debit\": 0.0,\n            \"credit\": 100.0,\n            \"currency_id\": 1\n        }]\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/account_move/create",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"account_move",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 Feb 2025 09:57:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": [\n        {\n            \"success\": true,\n            \"message\": \"تم إنشاء قيد اليومية بنجاح\",\n            \"journal_entry_id\": 108,\n            \"status\": 201\n        }\n    ]\n}"
+				},
+				{
+					"name": "create journal E",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"move_type\": \"entry\",\n    \"ref\":\"ref7\",\n    \"date\": \"2025-02-18\",\n    \"line_ids\": [\n        [0, 0, {\n            \"account_id\": 336,\n            \"name\": \"Test Line 1\",\n            \"debit\": 100.0,\n            \"credit\": 0.0,\n            \"currency_id\": 1\n        }],\n        [0, 0, {\n            \"account_id\": 327,\n            \"name\": \"Test Line 2\",\n            \"debit\": 0.0,\n            \"credit\": 100.0,\n            \"currency_id\": 1\n        }]\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/account_move/create",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"account_move",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Mar 2025 12:47:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "163"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": [\n        {\n            \"success\": true,\n            \"message\": \"تم إنشاء قيد اليومية بنجاح\",\n            \"journal_entry_id\": 51,\n            \"status\": 201\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "create sale order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImFhIiwiZXhwIjoxNzQxNjA5ODE1fQ.pnIiBYXbckJ8roaVsunrIW5H35r91LoQg_Y8ItKOYhI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"params\": {\n        \"customer_id\": \"10\",\n        \"pricelist_id\": 3,\n        \"salesperson_id\": \"2\",\n        \"payment_type\": \"check\",\n \n        \"items\": [\n            {\n                \"product_id\": \"17\",\n                \"quantity\": \"2\",\n                \"price\": \"1\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/create_sales_order",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"create_sales_order"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "check",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"params\": {\n        \"customer_id\": \"10\",\n        \"pricelist_id\": 2,\n        \"salesperson_id\": \"2\",\n        \"payment_type\": \"check\",\n \n        \"items\": [\n            {\n                \"product_id\": \"17\",\n                \"quantity\": \"2\",\n                \"price\": \"1\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/sokia/create_sales_order",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"sokia",
+								"create_sales_order"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Mar 2025 11:19:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"status_code\": 200,\n        \"is_error\": false,\n        \"message\": \"Order created successfully\",\n        \"result_rpo\": [\n            \"sale.order(25,)\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "cash",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"params\": {\n        \"customer_id\": \"10\",\n        \"pricelist_id\": 2,\n        \"salesperson_id\": \"2\",\n        \"payment_type\": \"cash\",\n \n        \"items\": [\n            {\n                \"product_id\": \"17\",\n                \"quantity\": \"2\",\n                \"price\": \"1\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/sokia/create_sales_order",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"sokia",
+								"create_sales_order"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Mar 2025 11:19:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"status_code\": 200,\n        \"is_error\": false,\n        \"message\": \"Order created successfully\",\n        \"result_rpo\": [\n            \"sale.order(26,)\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "create sale order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"params\": {\n        \"customer_id\": \"10\",\n        \"pricelist_id\": 2,\n        \"salesperson_id\": \"2\",\n        \"payment_type\": \"check\",\n \n        \"items\": [\n            {\n                \"product_id\": \"17\",\n                \"quantity\": \"2\",\n                \"price\": \"1\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/create_sales_order",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"create_sales_order"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Mar 2025 10:49:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"status_code\": 200,\n        \"is_error\": false,\n        \"message\": \"Order created successfully\",\n        \"result_rpo\": [\n            \"sale.order(38,)\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "collection",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImFhIiwiZXhwIjoxNzQxNjA5ODE1fQ.pnIiBYXbckJ8roaVsunrIW5H35r91LoQg_Y8ItKOYhI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{odoo}}/v1/collection/data?page=5&limit=6&offset=20&model=product.product",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"v1",
+						"collection",
+						"data"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "5"
+						},
+						{
+							"key": "limit",
+							"value": "6"
+						},
+						{
+							"key": "offset",
+							"value": "20"
+						},
+						{
+							"key": "model",
+							"value": "product.product"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "contacts Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=5&limit=6&offset=20&model=res.partner",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "5"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "res.partner"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:25:00 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "451"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 41,\n            \"name\": \"Jeffrey Kelly\",\n            \"phone\": false\n        },\n        {\n            \"id\": 40,\n            \"name\": \"Dwayne Newman\",\n            \"phone\": \"(614)-177-4937\"\n        },\n        {\n            \"id\": 39,\n            \"name\": \"Chester Reed\",\n            \"phone\": \"(979)-904-8902\"\n        },\n        {\n            \"id\": 38,\n            \"name\": \"Travis Mendoza\",\n            \"phone\": \"(840)-944-8661\"\n        },\n        {\n            \"id\": 37,\n            \"name\": \"Julie Richards\",\n            \"phone\": \"(225)-148-7811\"\n        },\n        {\n            \"id\": 36,\n            \"name\": \"Sandra Neal\",\n            \"phone\": \"(430)-371-7293\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 5,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "items Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=5&limit=6&offset=20&model=product.product",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "5"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "product.product"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:35:48 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "605"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 30,\n            \"barcode\": false,\n            \"default_code\": \"FURN_0789\",\n            \"name\": \"Individual Workplace\"\n        },\n        {\n            \"id\": 29,\n            \"barcode\": false,\n            \"default_code\": \"FURN_7888\",\n            \"name\": \"Desk Stand with Screen\"\n        },\n        {\n            \"id\": 28,\n            \"barcode\": false,\n            \"default_code\": \"FURN_9001\",\n            \"name\": \"Flipover\"\n        },\n        {\n            \"id\": 27,\n            \"barcode\": false,\n            \"default_code\": \"FURN_8900\",\n            \"name\": \"Drawer Black\"\n        },\n        {\n            \"id\": 26,\n            \"barcode\": false,\n            \"default_code\": \"FURN_1118\",\n            \"name\": \"Corner Desk Left Sit\"\n        },\n        {\n            \"id\": 25,\n            \"barcode\": false,\n            \"default_code\": \"FURN_0269\",\n            \"name\": \"Office Chair Black\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 5,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "journals",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=account.journal",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "account.journal"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:40:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "318"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 24,\n            \"name\": \"Point of Sale\"\n        },\n        {\n            \"id\": 23,\n            \"name\": \"Point of Sale\"\n        },\n        {\n            \"id\": 22,\n            \"name\": \"Inventory Valuation\"\n        },\n        {\n            \"id\": 21,\n            \"name\": \"Inventory Valuation\"\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Zakat\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"IFRS 16 Right of Use Asset\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "cost centre",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=account.analytic.account",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "account.analytic.account"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:43:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 27,\n            \"name\": \"mkmm\"\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Internal\"\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Internal\"\n        },\n        {\n            \"id\": 24,\n            \"name\": \"Internal\"\n        },\n        {\n            \"id\": 23,\n            \"name\": \"pro1\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Research & Development\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "shart of accounts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=account.account",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "account.account"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:45:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "343"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 336,\n            \"name\": \"Liquidity Transfer\"\n        },\n        {\n            \"id\": 335,\n            \"name\": \"Cash Difference Loss\"\n        },\n        {\n            \"id\": 334,\n            \"name\": \"Cash Difference Gain\"\n        },\n        {\n            \"id\": 333,\n            \"name\": \"Cash Discount Gain\"\n        },\n        {\n            \"id\": 332,\n            \"name\": \"Cash Discount Loss\"\n        },\n        {\n            \"id\": 331,\n            \"name\": \"Outstanding Payments\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "Pha_UnitOfMeasure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=uom.uom",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "uom.uom"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:47:16 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "260"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 26,\n            \"name\": \"ft³\"\n        },\n        {\n            \"id\": 25,\n            \"name\": \"in³\"\n        },\n        {\n            \"id\": 24,\n            \"name\": \"gal (US)\"\n        },\n        {\n            \"id\": 23,\n            \"name\": \"qt (US)\"\n        },\n        {\n            \"id\": 22,\n            \"name\": \"fl oz (US)\"\n        },\n        {\n            \"id\": 21,\n            \"name\": \"ft²\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "Bill Invoices",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=account.move",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "account.move"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:50:32 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "650"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 119,\n            \"invoice_line_ids\": [\n                254,\n                255\n            ],\n            \"move_type\": \"entry\",\n            \"name\": \"TA/2025/02/0018\"\n        },\n        {\n            \"id\": 118,\n            \"invoice_line_ids\": [\n                252,\n                253\n            ],\n            \"move_type\": \"entry\",\n            \"name\": \"TA/2025/02/0017\"\n        },\n        {\n            \"id\": 117,\n            \"invoice_line_ids\": [\n                250,\n                251\n            ],\n            \"move_type\": \"entry\",\n            \"name\": \"TA/2025/02/0016\"\n        },\n        {\n            \"id\": 116,\n            \"invoice_line_ids\": [\n                248,\n                249\n            ],\n            \"move_type\": \"entry\",\n            \"name\": \"PBNK1/2025/00003\"\n        },\n        {\n            \"id\": 115,\n            \"invoice_line_ids\": [\n                244,\n                245\n            ],\n            \"move_type\": \"out_invoice\",\n            \"name\": \"INV/2025/00007\"\n        },\n        {\n            \"id\": 113,\n            \"invoice_line_ids\": [\n                240,\n                241\n            ],\n            \"move_type\": \"entry\",\n            \"name\": \"PBNK1/2025/00002\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				},
+				{
+					"name": "Acc_JournalDetail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{odoo}}/v1/collection/data?page=1&limit=6&offset=20&model=account.move.line",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"v1",
+								"collection",
+								"data"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "6"
+								},
+								{
+									"key": "offset",
+									"value": "20"
+								},
+								{
+									"key": "model",
+									"value": "account.move.line"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Feb 2025 13:51:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "295"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 255,\n            \"name\": \"Test Line 2\"\n        },\n        {\n            \"id\": 254,\n            \"name\": \"Test Line 1\"\n        },\n        {\n            \"id\": 253,\n            \"name\": \"Test Line 2\"\n        },\n        {\n            \"id\": 252,\n            \"name\": \"Test Line 1\"\n        },\n        {\n            \"id\": 251,\n            \"name\": \"Test Line 2\"\n        },\n        {\n            \"id\": 250,\n            \"name\": \"Test Line 1\"\n        }\n    ],\n    \"message\": \"successfil\",\n    \"pagination_info\": {\n        \"page\": 1,\n        \"limit\": 6\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create invoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJlbWFpbCI6ImFhIiwiZXhwIjoxNzQxNjA5ODE1fQ.pnIiBYXbckJ8roaVsunrIW5H35r91LoQg_Y8ItKOYhI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partner_id\": 10,\n    \"move_type\": \"out_invoice\",\n    \"invoice_date\": \"2025-03-8\",\n    \"journal_id\": 11,\n    \"payment_type\": \"check\", // you can choose ('cash','check','visa')\n    \"invoice_line_ids\": [\n        {\n            \"product_id\":42,\n            \"quantity\": 2,\n            \"price\": 40\n        }\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/create/invoice",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"create",
+						"invoice"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create invoice",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"partner_id\": 45,\n    \"move_type\": \"out_invoice\",\n    \"invoice_date\": \"2025-03-1\",\n    \"journal_id\": 12,\n    \"payment_type\": \"check\", // you can choose ('cash','check','visa')\n    \"invoice_line_ids\": [\n        {\n            \"product_id\":30,\n            \"quantity\": 2,\n            \"price\": 40\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/create/invoice",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"create",
+								"invoice"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Mar 2025 12:10:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"success\": true,\n        \"message\": \"Invoice created successfully\",\n        \"invoice_id\": 159\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTc0MzE1OTI0OH0.wc17YoI12G1FTTMHpzSw8sfrgBcJ940YgX7P1jNlZc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Laptop HP\",\n  \"price\": 1500,\n  \"description\": \"A high-performance laptop\",\n  \"type\": \"service\" // consu-service-product\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/create_product",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"create_product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Laptop HP\",\n  \"price\": 1500,\n  \"description\": \"A high-performance laptop\",\n  \"type\": \"service\" // consu-service-product\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/create_product",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"create_product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Mar 2025 12:32:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"success\": true,\n        \"message\": \"تم إنشاء المنتج بنجاح\",\n        \"product_id\": 30,\n        \"type\": \"service\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMSwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTc0MzE1OTI0OH0.wc17YoI12G1FTTMHpzSw8sfrgBcJ940YgX7P1jNlZc0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Revenue Account\",\n  \"code\": \"4000\",\n  \"account_type\": \"income\",\n  \"company_id\": 1\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{odoo}}/api/create_account",
+					"host": [
+						"{{odoo}}"
+					],
+					"path": [
+						"api",
+						"create_account"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Revenue Account\",\n  \"code\": \"4000\",\n  \"account_type\": \"income\",\n  \"company_id\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{odoo}}/api/create_account",
+							"host": [
+								"{{odoo}}"
+							],
+							"path": [
+								"api",
+								"create_account"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.3"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Mar 2025 12:47:09 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "158"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": null,\n    \"result\": {\n        \"success\": true,\n        \"message\": \"تم إنشاء الحساب بنجاح\",\n        \"account_id\": 333,\n        \"account_type\": \"income\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "odoo",
+			"value": "https://api17.bsma.sa",
+			"type": "string"
+		}
+	]
+}
