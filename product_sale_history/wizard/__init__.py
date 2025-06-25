@@ -1,1 +1,0 @@
-from . import product_details_wizard
