@@ -1,0 +1,94 @@
+<odoo>
+    <record id="progress_report_action" model="ir.actions.report">
+        <field name="name">Progress Report</field>
+        <field name="model">progress</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_progress"/>
+        <field name="report_name">roadmap_task.progress_report_template</field>
+    </record>
+
+    <template id="progress_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h2 style="text-align: center; margin-bottom: 20px;">Progress Report</h2>
+
+                        <style>
+                            table {
+                                width: 100%;
+                                border: 1px solid #b3adad;
+                                border-collapse: collapse;
+                                margin-bottom: 20px;
+                            }
+                            table th, table td {
+                                border: 1px solid #b3adad;
+                                padding: 8px;
+                                text-align: left;
+                                font-size: 14px;
+                            }
+                            table th {
+                                background: #f0f0f0;
+                                color: #313030;
+                            }
+                            table td {
+                                background: #ffffff;
+                                color: #313030;
+                            }
+                            .section-title {
+                                font-size: 16px;
+                                font-weight: bold;
+                                margin-top: 20px;
+                                margin-bottom: 10px;
+                            }
+                        </style>
+
+                        <!-- User Information Table -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="4">User Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>User Name</strong></td>
+                                    <td><t t-esc="o.user_id.name"/></td>
+                                    <td><strong>Finished Videos</strong></td>
+                                    <td><t t-esc="o.finished_videos"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Progress (%)</strong></td>
+                                    <td><t t-esc="o.progress"/>%</td>
+                                    <td><strong>Finished Courses</strong></td>
+                                    <td><t t-esc="o.finished_courses"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Courses List -->
+                        <div>
+                            <span class="section-title">Courses</span>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Course Name</th>
+                                        <th>Number of Videos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.course_ids" t-as="course">
+                                        <tr>
+                                            <td><t t-esc="course.name"/></td>
+                                            <td><t t-esc="course.number_of_videos"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

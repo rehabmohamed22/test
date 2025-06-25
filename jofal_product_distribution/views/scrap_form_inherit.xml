@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_scrap_order_multi_form" model="ir.ui.view">
+        <field name="name">scrap.order.multi.form</field>
+        <field name="model">scrap.order.multi</field>
+        <field name="arch" type="xml">
+            <form string="Multi Scrap Order">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="company_id"/>
+                        <field name="location_id"/>
+                    </group>
+                    <field name="line_ids">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                        </tree>
+                    </field>
+                    <footer>
+                        <button name="action_validate" type="object" string="Validate Scrap" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_scrap_order_multi" model="ir.actions.act_window">
+        <field name="name">Multi Scrap</field>
+        <field name="res_model">scrap.order.multi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_multi_scrap_root" name="Multi Scrap" parent="stock.menu_stock_root"/>
+    <menuitem id="menu_scrap_order_multi" name="Scrap Orders" parent="menu_multi_scrap_root" action="action_scrap_order_multi"/>
+</odoo>

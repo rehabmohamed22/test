@@ -1,0 +1,51 @@
+<odoo>
+    <record id="lab_patient_form_view" model="ir.ui.view">
+        <field name="name">lab.patient.form.view</field>
+        <field name="model">lab.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <header>
+                    <button name="%(action_open_visit_wizard)d" string="New Visit" type="action" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="medical_history"/>
+                    </group>
+                    <notebook>
+                        <page string="Lab Tests">
+                            <field name="lab_test_ids"/>
+                        </page>
+                        <page string="Radiology">
+                            <field name="radiology_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="lab_patient_tree_view" model="ir.ui.view">
+        <field name="name">lab.patient.tree.view</field>
+        <field name="model">lab.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lab_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">lab.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

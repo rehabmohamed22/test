@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_bulk_installment_payment_wizard" model="ir.ui.view">
+        <field name="name">bulk.installment.payment.wizard.form</field>
+        <field name="model">bulk.installment.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Installment Payment">
+                <group>
+                    <field name="partner_id"/>
+                </group>
+                <field name="payment_lines">
+                    <tree editable="bottom">
+                        <field name="purchase_order_id"/>
+                        <field name="amount"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_pay" type="object" string="Pay" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bulk_installment_payment" model="ir.actions.act_window">
+        <field name="name">Bulk Installment Payment</field>
+        <field name="res_model">bulk.installment.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_bulk_installment_payment_wizard"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

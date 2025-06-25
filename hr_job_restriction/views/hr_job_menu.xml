@@ -1,0 +1,16 @@
+<odoo>
+    <record id="action_hr_job_restriction_report" model="ir.actions.report">
+        <field name="name">HR Job Restriction Report</field>
+        <field name="model">hr.job</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hr_job_restriction.report_hr_job_restriction</field>
+        <field name="report_file">hr_job_restriction.report_hr_job_restriction</field>
+        <field name="binding_model_id" ref="hr.model_hr_job"/>
+        <field name="binding_type">report</field> <!-- مهم جدًا لربطه بالقائمة -->
+    </record>
+
+    <menuitem id="menu_hr_job_restriction_report_root" name="HR Job Reports" parent="hr.menu_hr_root"/>
+    <menuitem id="menu_hr_job_restriction_report" name="Job Restriction Report"
+              parent="menu_hr_job_restriction_report_root"
+              action="action_hr_job_restriction_report"/>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wizard_detail_rep_form" model="ir.ui.view">
+        <field name="name">wizard.detail.report.form</field>
+        <field name="model">wizard.report</field>
+        <field name="arch" type="xml">
+            <form string="Report Wizard">
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="customer_id" widget="many2many_tags"/>
+                    <field name="contract_number" widget="many2many_tags"/>
+
+                </group>
+                <footer>
+                    <button string="Print" type="object" name="print_pdf_detail" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_open_wizard_details_report" model="ir.actions.act_window">
+        <field name="name">Report Details Wizard</field>
+        <field name="res_model">wizard.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wizard_detail_rep_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_rental_report1" name="Print Rental Details Report"
+              parent="sale_renting.menu_sale_renting_periods" action="action_open_wizard_details_report"
+              sequence="100"/>
+
+</odoo>

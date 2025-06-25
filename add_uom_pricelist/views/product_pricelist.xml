@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="sale_order_price_list" model="ir.ui.view">
+            <field name="name">sale order price list</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='item_ids']/tree/field[@name='fixed_price']" position="before">
+                    <field name="category_id" column_invisible="1"/>
+                    <field name="uom_id"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

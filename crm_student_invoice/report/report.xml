@@ -1,0 +1,9 @@
+<odoo>
+  <record id="action_report_invoice_student_custom" model="ir.actions.report">
+    <field name="name">Student Invoice2</field>
+    <field name="model">account.move</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">crm_student_invoice_safe.report_invoice_student_custom</field>
+    <field name="report_file">crm_student_invoice_safe.report_invoice_student_custom</field>
+  </record>
+</odoo>

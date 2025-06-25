@@ -1,0 +1,39 @@
+<odoo>
+    <record id="zid_order_sync_form_view" model="ir.ui.view">
+        <field name="name">zid.order.sync.form</field>
+        <field name="model">zid.order.sync</field>
+        <field name="arch" type="xml">
+            <form string="Zid Sync Manager">
+                <sheet>
+                    <header>
+
+                        <button name="action_update_status" string="Update Order Status" type="object"
+                                class="btn-success"/>
+                    </header>
+                    <group>
+<!--                        <field name="name"/>-->
+                        <field name="zid_order_id"/>
+                        <field name="zid_order_status"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_zid_order_sync" model="ir.actions.act_window">
+        <field name="name">Zid Order Manager</field>
+        <field name="res_model">zid.order.sync</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field> <!-- ممكن تخليها current لو عايز شاشة كاملة -->
+    </record>
+
+    <menuitem id="zid_root_menu" name="Zid Connector" sequence="10"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="order_menu" name="Orders" parent="zid_root_menu"  sequence="1"/>
+    <menuitem id="zid_order_sync_menu" name="Update Order "
+              parent="order_menu"
+              action="action_zid_order_sync"
+              sequence="2"/>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <!-- تعديل الواجهة لعرض السيريال في النموذج -->
+    <record id="sale_order_form_inherit_serial" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.serial</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="before">
+                <field name="sequence" string="#" width="50"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

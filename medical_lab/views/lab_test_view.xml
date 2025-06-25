@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_lab_test_form" model="ir.ui.view">
+        <field name="name">lab.test.form</field>
+        <field name="model">medical.lab.test</field>
+        <field name="arch" type="xml">
+            <form string="Lab Test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="test_code"/>
+                        <field name="normal_range"/>
+                        <field name="price"/>
+                        <field name="doctor_id"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lab_test_tree" model="ir.ui.view">
+        <field name="name">lab.test.tree</field>
+        <field name="model">medical.lab.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="test_code"/>
+                <field name="normal_range"/>
+                <field name="price"/>
+                <field name="doctor_id"/>
+            </tree>
+        </field>
+    </record>
+<record id="action_lab_test" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="res_model">medical.lab.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="medical_lab_test_menu"
+              name="Lab Tests"
+              parent="medical_lab_root"
+              action="action_lab_test"/>
+
+
+</odoo>

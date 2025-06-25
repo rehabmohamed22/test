@@ -1,0 +1,73 @@
+<odoo>
+    <record id="action_report_lab_test_request" model="ir.actions.report">
+      <field name="name">Lab Test Request Report</field>
+      <field name="model">lab.test.request</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">lab_module.report_lab_test_request</field>
+    </record>
+
+
+
+    <template id="report_lab_test_request">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="padding: 20px; border: 2px solid #ddd;">
+                    <!-- اللوجو -->
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img src="/lab_module/static/description/logo.png" alt="Lab Logo" style="max-height: 80px;"/>
+                        <h2 style="margin-top: 10px;">Lab Test Request Report</h2>
+                    </div>
+
+                    <!-- بيانات الطلب -->
+                    <table class="table table-condensed" style="width: 100%; border: 1px solid #ccc; padding: 10px;">
+                        <tr>
+                            <td><strong>Request Reference:</strong></td>
+                            <td><t t-esc="doc.name"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Patient:</strong></td>
+                            <td><t t-esc="doc.patient_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Doctor:</strong></td>
+                            <td><t t-esc="doc.doctor_id.name or 'N/A'"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date Requested:</strong></td>
+                            <td><t t-esc="doc.date_requested"/></td>
+                        </tr>
+                    </table>
+
+                    <!-- نتائج التحاليل -->
+                    <h3 style="margin-top: 20px;">Requested Tests</h3>
+                    <table class="table table-bordered" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #f2f2f2;">
+                                <th style="border: 1px solid #ccc; padding: 8px;">Test</th>
+                                <th style="border: 1px solid #ccc; padding: 8px;">Result</th>
+                                <th style="border: 1px solid #ccc; padding: 8px;">Normal Range</th>
+                                <th style="border: 1px solid #ccc; padding: 8px;">Date Done</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.result_ids" t-as="result">
+                                <tr>
+                                    <td style="border: 1px solid #ccc; padding: 8px;"><t t-esc="result.test_id.name"/></td>
+                                    <td style="border: 1px solid #ccc; padding: 8px;"><t t-esc="result.result_value or 'Pending'"/></td>
+                                    <td style="border: 1px solid #ccc; padding: 8px;"><t t-esc="result.normal_range or 'N/A'"/></td>
+                                    <td style="border: 1px solid #ccc; padding: 8px;"><t t-esc="result.date_done or 'N/A'"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <!-- الحالة -->
+                    <p style="margin-top: 30px; text-align: right;">
+                        <strong>Status:</strong> <t t-esc="doc.state"/>
+                    </p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

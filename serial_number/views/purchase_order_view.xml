@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- تعديل واجهة Purchase Order Form -->
+    <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!-- إضافة الحقل amount_in_words بعد حقل currency_id -->
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="amount_in_words" string="المبلغ بالكلمات" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

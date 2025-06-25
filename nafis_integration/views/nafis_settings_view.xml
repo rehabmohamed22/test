@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_nafis_config_form" model="ir.ui.view">
+        <field name="name">nafis.config.form</field>
+        <field name="model">nafis.config</field>
+        <field name="arch" type="xml">
+            <form string="Nafis Configuration">
+                <sheet>
+                    <group>
+                        <field name="client_id"/>
+                        <field name="client_secret" password="True"/>
+                        <field name="token_url"/>
+                        <field name="base_url"/>
+                        <field name="scopes"/>
+                        <field name="test_mode"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nafis_config_tree" model="ir.ui.view">
+        <field name="name">nafis.config.tree</field>
+        <field name="model">nafis.config</field>
+        <field name="arch" type="xml">
+            <tree string="Nafis Configurations">
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="base_url"/>
+                <field name="test_mode"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_nafis_config" model="ir.actions.act_window">
+        <field name="name">Nafis Configuration</field>
+        <field name="res_model">nafis.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_nafis_config" name="Configuration" parent="menu_nafis_root" action="action_nafis_config"/>
+</odoo>

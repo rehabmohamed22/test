@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_custom,res_partner_custom,model_res_partner,base.group_user,1,1,1,1
+access_crm_lead_custom,crm_lead_custom,model_crm_lead,base.group_user,1,1,1,1
+access_programming_language,programming_language,model_programming_language,base.group_user,1,1,1,1
+access_lead_source,lead_source,model_lead_source,base.group_user,1,1,1,1

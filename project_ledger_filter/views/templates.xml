@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+    <record id="partner_ledger_report_project_name" model="account.report.column">
+        <field name="name">project</field>
+        <field name="expression_label">project_name</field>
+        <field name="figure_type">string</field>
+        <field name="report_id" ref="account_reports.partner_ledger_report" />
+        <field name="sequence">0</field>
+    </record>
+    </data>
+
+        <record id="account_reports.partner_ledger_report" model="account.report">
+        <field name="filter_project" eval="True"/>
+    </record>
+
+</odoo>

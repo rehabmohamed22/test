@@ -1,0 +1,10 @@
+<odoo>
+  <report
+      id="action_report_elearning_invoice"
+      model="account.move"
+      string="Bsma Learning Invoice"
+      report_type="qweb-pdf"
+      name="elearning_invoice.report_learning_invoice"
+      file="elearning_invoice.report_learning_invoice"
+  />
+</odoo>

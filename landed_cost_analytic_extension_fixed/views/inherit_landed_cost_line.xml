@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_landed_cost_lines_tree_inherit_analytic" model="ir.ui.view">
+        <field name="name">stock.landed.cost.form.inherit.analytic</field>
+        <field name="model">stock.landed.cost</field>
+        <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='cost_lines']/tree/field[@name='price_unit']" position="after">
+                <field name="analytic_distribution" widget="analytic_distribution"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

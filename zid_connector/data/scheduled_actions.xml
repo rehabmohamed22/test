@@ -1,0 +1,39 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_sync_zid_customers" model="ir.cron">
+            <field name="name">Zid Customers Auto Sync</field>
+            <field name="model_id" ref="model_zid_customer_sync"/>
+            <field name="state">code</field>
+            <field name="code">model.action_sync_customers()</field>
+            <field name="interval_number">2</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="ir_cron_sync_zid_products" model="ir.cron">
+            <field name="name">Zid Product Sync</field>
+            <field name="model_id" ref="model_zid_product_sync"/>
+            <field name="state">code</field>
+            <field name="code">model.action_sync_products()</field>
+            <field name="interval_number">2</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+
+
+        <record id="ir_cron_fetch_zid_orders" model="ir.cron">
+            <field name="name">Fetch Zid Orders</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_fetch_zid_orders()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+
+
+    </data>
+</odoo>

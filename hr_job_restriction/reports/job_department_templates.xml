@@ -1,0 +1,19 @@
+<odoo>
+    <template id="report_job_department">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="job">
+                <div class="page">
+                    <h2>Job: <t t-esc="job.name"/></h2>
+                    <p><strong>Code:</strong> <t t-esc="job.code or 'N/A'"/></p>
+                    <p><strong>Restricted Departments:</strong>
+                        <t t-if="job.restricted_department_ids">
+                            <t t-esc="', '.join([d.name for d in job.restricted_department_ids])"/>
+                        </t>
+                        <t t-if="not job.restricted_department_ids">All Departments</t>
+                    </p>
+                    <hr/>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

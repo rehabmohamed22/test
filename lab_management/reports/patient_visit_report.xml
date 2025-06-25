@@ -1,0 +1,94 @@
+<odoo>
+    <record id="action_patient_visit_report" model="ir.actions.report">
+        <field name="name">Patient Visit Report</field>
+        <field name="model">lab.patient.visit</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lab_management.report_patient_visit_document</field>
+        <field name="print_report_name">'Patient_Visit_Report_%s' % (object.patient_id.name or "Unknown")</field>
+        <field name="binding_model_id" ref="model_lab_patient_visit"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_patient_visit_report" model="ir.actions.report">
+        <field name="name">Patient Visit Report</field>
+        <field name="model">lab.patient.visit</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">lab_management.report_patient_visit_document</field>
+        <field name="print_report_name">'Patient_Visit_Report_%s' % (object.patient_id.name or "Unknown")</field>
+    </record>
+
+
+    <template id="report_patient_visit_document">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2 class="text-center">Patient Visit Report</h2>
+
+                    <!-- ✅ بيانات المريض -->
+                    <p><strong>Patient:</strong> <t t-esc="doc.patient_id.name or ''"/></p>
+                    <p><strong>Doctor:</strong> <t t-esc="doc.doctor_id.name or ''"/></p>
+                    <p><strong>Visit Date:</strong> <t t-esc="doc.visit_date or ''"/></p>
+
+                    <!-- ✅ ملاحظات الزيارة -->
+                    <t t-if="doc.notes">
+                        <h3>Notes</h3>
+                        <p t-esc="doc.notes"/>
+                    </t>
+
+                    <!-- ✅ عرض نتائج التحاليل -->
+                    <t t-if="doc.test_result_ids">
+                        <h3>Lab Test Results</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Test Name</th>
+                                    <th>Result</th>
+                                    <th>Normal Range</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.test_result_ids" t-as="test">
+                                    <tr>
+                                        <td t-esc="test.lab_test_type_id.name or ''"/>
+                                        <td t-esc="test.result or ''"/>
+                                        <td t-esc="test.normal_range or ''"/>
+                                        <td t-esc="test.notes or ''"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <!-- ✅ عرض نتائج الأشعة -->
+                    <t t-if="doc.imaging_result_ids">
+                        <h3>Imaging Results</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Imaging Type</th>
+                                    <th>Findings</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.imaging_result_ids" t-as="imaging">
+                                    <tr>
+                                        <td t-esc="imaging.imaging_type_id.name or ''"/>
+                                        <td t-esc="imaging.findings or ''"/>
+                                        <td t-esc="imaging.notes or ''"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+</odoo>
+

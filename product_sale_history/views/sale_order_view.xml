@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+               <button name="%(action_open_test_wizard)s" type="action"
+                   string="🔍 تفاصيل" class="btn-primary"
+                       context="{'order_line_id': id}"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_open_test_wizard" model="ir.actions.server">
+        <field name="name">فتح تفاصيل المنتج</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="state">code</field>
+       <field name="code">
+order_line_id = env.context.get('order_line_id')
+if order_line_id:
+    action = env['sale.order.line'].browse(order_line_id).open_line_wizard()
+</field>
+
+    </record>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+<template id="sale_order_report_template">
+    <t t-call="web.html_container">
+        <t t-if="docs">
+            <h2 style="color: green;">Data Found ✅</h2>
+            <t t-foreach="docs" t-as="order">
+                <h2>Sale Order: <t t-esc="order.name"/></h2>
+                <p>Customer: <t t-esc="order.partner_id.name"/></p>
+                <p>Date: <t t-esc="order.date_order"/></p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="order.order_line" t-as="line">
+                            <tr>
+                                <td t-esc="line.product_id.name"/>
+                                <td t-esc="line.product_uom_qty"/>
+                                <td t-esc="line.price_total"/>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <h3>Total: <t t-esc="order.amount_total"/></h3>
+            </t>
+        </t>
+        <t t-else="">
+            <h2 style="color: red;">No Orders Found ❌</h2>
+        </t>
+    </t>
+</template>
+   <record id="sale_order_report" model="ir.actions.report">
+    <field name="name">Sale Order Report</field>
+    <field name="model">sale.order.report</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sale_wizard.sale_order_report_template</field>
+   </record>
+</odoo>

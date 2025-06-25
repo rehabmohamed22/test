@@ -1,0 +1,68 @@
+<odoo>
+  <template id="report_invoice_student_custom">
+    <t t-name="bsma_invoice_final_en.report_invoice_student_custom">
+      <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="o">
+          <main class="invoice-box">
+
+            <div class="header-row">
+              <div class="logo-left">
+                <img t-att-src="'/crm_student_invoice/static/src/img/bsma_logo.jpeg'" class="logo"/>
+              </div>
+              <div class="invoice-title-right">
+                <h1 class="title">INVOICE</h1>
+              </div>
+            </div>
+
+           <div class="info-box">
+  <p><span class="label">Student Name:</span> <t t-esc="o.partner_id.name"/></p>
+  <p><span class="label">Course Name:</span> <t t-esc="o.invoice_line_ids[0].name"/></p>
+  <p><span class="label">Invoice Date:</span> <t t-esc="o.invoice_date"/></p>
+<!--  <p><span class="label">Invoice Number:</span> <t t-esc="o.name"/></p>-->
+</div>
+
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Before Discount</th>
+                  <th>Discount</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-set="subtotal" t-value="sum(line.price_unit * line.quantity for line in o.invoice_line_ids)"/>
+                <t t-set="discount" t-value="subtotal - o.amount_total"/>
+                <tr>
+                  <td><t t-esc="subtotal"/></td>
+                  <td><t t-esc="discount"/></td>
+                  <td><t t-esc="o.amount_total"/></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="signature">
+              <p>Signature</p>
+              <hr/>
+            </div>
+
+<!--            <div class="thank-note">Thank you for trusting Bsma Academy.</div>-->
+
+            <!-- ✅ الشكل الجديد للموجة أسفل الفاتورة -->
+        <div class="custom-footer">
+  <svg viewBox="0 0 1440 100" class="footer-wave">
+    <path fill="#a04399" d="M0,32 C360,100 1080,0 1440,64 L1440,100 L0,100 Z"></path>
+  </svg>
+  <div class="footer-text-en">
+    Thank you for trusting Bsma Academy.
+  </div>
+</div>
+
+
+
+          </main>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

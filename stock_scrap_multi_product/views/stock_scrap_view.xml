@@ -1,0 +1,47 @@
+<odoo>
+  <record id="view_stock_scrap_form_inherit" model="ir.ui.view">
+    <field name="name">stock.scrap.form.inherit.multi</field>
+    <field name="model">stock.scrap</field>
+    <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+    <field name="arch" type="xml">
+
+      <!-- إخفاء المنتج -->
+      <field name="product_id" position="attributes">
+        <attribute name="invisible">1</attribute>
+        <attribute name="required">0</attribute>
+      </field>
+
+<!--      &lt;!&ndash; زر Confirm and Validate &ndash;&gt;-->
+<!--      <xpath expr="//header" position="inside">-->
+<!--  <button name="button_confirm_and_validate"-->
+<!--          type="object"-->
+<!--          string="Confirm and Validate"-->
+<!--          class="btn-primary"/>-->
+<!--</xpath>-->
+
+
+      <!-- تبويب Scrap Lines -->
+      <xpath expr="//sheet" position="inside">
+        <notebook>
+          <page string="Scrap Lines">
+            <field name="scrap_line_ids" mode="tree,form" editable="bottom">
+              <tree editable="bottom">
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="description"/>
+              </tree>
+              <form>
+                <group>
+                  <field name="product_id"/>
+                  <field name="quantity"/>
+                  <field name="description"/>
+                </group>
+              </form>
+            </field>
+          </page>
+        </notebook>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

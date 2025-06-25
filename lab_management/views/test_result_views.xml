@@ -1,0 +1,74 @@
+<odoo>
+    <!-- Lab Test Result -->
+    <record id="lab_test_result_form" model="ir.ui.view">
+        <field name="name">lab.test.result.form</field>
+        <field name="model">lab.test.result</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="visit_id"/>
+                    <field name="lab_test_type_id"/>
+                    <field name="result"/>
+                    <field name="notes"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="lab_test_result_tree" model="ir.ui.view">
+        <field name="name">lab.test.result.tree</field>
+        <field name="model">lab.test.result</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="visit_id"/>
+                <field name="lab_test_type_id"/>
+                <field name="result"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Imaging Result -->
+    <record id="imaging_result_form" model="ir.ui.view">
+        <field name="name">lab.imaging.result.form</field>
+        <field name="model">lab.imaging.result</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="visit_id"/>
+                    <field name="imaging_type_id"/>
+                    <field name="report"/>
+                    <field name="attachment" widget="binary"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="imaging_result_tree" model="ir.ui.view">
+        <field name="name">lab.imaging.result.tree</field>
+        <field name="model">lab.imaging.result</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="visit_id"/>
+                <field name="imaging_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_lab_test_result" model="ir.actions.act_window">
+        <field name="name">Lab Test Results</field>
+        <field name="res_model">lab.test.result</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_imaging_result" model="ir.actions.act_window">
+        <field name="name">Imaging Results</field>
+        <field name="res_model">lab.imaging.result</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_results_root" name="Results" parent="menu_lab_management_root"/>
+    <menuitem id="menu_lab_test_results" name="Lab Test Results" parent="menu_results_root" action="action_lab_test_result"/>
+    <menuitem id="menu_imaging_results" name="Imaging Results" parent="menu_results_root" action="action_imaging_result"/>
+</odoo>

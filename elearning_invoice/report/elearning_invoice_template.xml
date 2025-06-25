@@ -1,0 +1,29 @@
+<odoo>
+  <template id="report_learning_invoice">
+    <t t-call="web.external_layout">
+      <t t-set="o" t-value="doc"/>
+      <div class="page" style="font-family: 'Arial', sans-serif; color: #4a0072; padding: 30px;">
+        <div class="row" style="border-bottom: 2px solid #dcd6f7; padding-bottom: 20px; margin-bottom: 30px;">
+          <div class="col-6">
+            <img t-att-src="'/elearning_invoice/static/src/img/bsma_logo.jpeg'" style="max-width: 160px;"/>
+          </div>
+          <div class="col-6" style="text-align: right;">
+            <h2 style="color: #9b59b6;">Learning Invoice</h2>
+            <p>Date: <t t-esc="o.invoice_date"/></p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 50px; line-height: 2;">
+          <p><strong>Student Name:</strong> <t t-esc="o.student_name"/></p>
+          <p><strong>Course Name:</strong> <t t-esc="o.course_name"/></p>
+          <p><strong>Total Amount:</strong> <span style="color: #2ecc71;"><t t-esc="o.amount_total"/> SAR</span></p>
+        </div>
+
+        <div style="margin-top: 100px;">
+          <p style="text-align: right; margin-bottom: 60px;">_________________________</p>
+          <p style="text-align: right;">Signature - Bsma Academy</p>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

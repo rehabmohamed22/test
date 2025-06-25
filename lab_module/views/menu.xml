@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_lab_root" name="Lab Module" sequence="10"/>
+    <menuitem id="menu_lab_patients" name="Patients" parent="menu_lab_root" action="action_lab_patient"/>
+    <menuitem id="menu_lab_doctors" name="Doctors" parent="menu_lab_root" action="action_lab_doctor"/>
+    <menuitem id="menu_lab_tests" name="Tests" parent="menu_lab_root" action="action_lab_test"/>
+    <menuitem id="menu_lab_test_requests" name="Test Requests" parent="menu_lab_root" action="action_lab_test_request"/>
+    <menuitem id="menu_lab_test_results" name="Test Results" parent="menu_lab_root" action="action_lab_test_result"/>
+
+    <menuitem id="menu_lab_test_wizard"
+              name="New Lab Test Request"
+              parent="menu_lab_root"
+              action="action_lab_test_wizard"
+              sequence="20"/>
+
+</odoo>

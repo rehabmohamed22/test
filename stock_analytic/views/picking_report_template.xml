@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="add_analytic_account_in_table" inherit_id="stock.report_picking">
+        <xpath expr="//table[1]/thead/tr/th[1]" position="after">
+            <th name="th_analytic_account">
+                <strong>Analytic Account</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[1]/tbody/tr/td[1]" position="after">
+            <td>
+                <t t-foreach="ml.analytic_distribution.items()" t-as="analytic_line">
+                    <t t-set="analytic_id" t-value="analytic_line[0]"/>
+                    <t t-set="percentage" t-value="analytic_line[1]"/>
+                    <span t-esc="ml.env['account.analytic.account'].browse(int(analytic_id)).name"/>
+                    (<span t-esc="percentage"/>%)
+                    <br/>
+                </t>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

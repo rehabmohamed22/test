@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_lab_patient_form" model="ir.ui.view">
+        <field name="name">lab.patient.form</field>
+        <field name="model">lab.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="medical_history"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lab_patient_tree" model="ir.ui.view">
+        <field name="name">lab.patient.tree</field>
+        <field name="model">lab.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_lab_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">lab.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

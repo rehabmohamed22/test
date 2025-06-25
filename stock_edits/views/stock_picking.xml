@@ -1,0 +1,40 @@
+<data>
+    <record id="stock_picking_inherit_view_form" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="partner_ref" invisible="not partner_ref"/>
+                <field name="has_validate_group" invisible="1"/>
+                <field name="receipt_number" invisible="picking_type_code != 'incoming'"
+                       readonly="state == 'done'"/>
+            </xpath>
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="employee_id" required="state == 'assigned' and picking_type_code =='outgoing'" readonly="state=='done'"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']//tree//field[@name='quantity']" position="after">
+                <field name="on_hand_quantity" force_save="1" optional="hide"
+                       column_invisible="parent.picking_type_code == 'incoming'"/>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="check_on_hand" string="Check On Hand" type="object"
+                        invisible="picking_type_code not in ['outgoing', 'internal'] or state in ['done', 'cancel']"/>
+            </xpath>
+<!--            <xpath expr="//button[@name='button_validate'][1]" position="attributes">-->
+<!--                <attribute name="invisible">state in ('draft', 'confirmed', 'done', 'cancel') or has_validate_group == False</attribute>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+    <record id="view_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="project_name_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>

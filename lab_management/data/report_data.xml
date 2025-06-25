@@ -1,0 +1,8 @@
+<odoo>
+<!--    <record id="report_patient_visit_document" model="ir.model.data">-->
+<!--        <field name="module">lab_management</field>-->
+<!--        <field name="name">action_patient_visit_report</field>-->
+<!--        <field name="model">ir.actions.report</field>-->
+<!--        <field name="res_id" ref="action_patient_visit_report"/>-->
+<!--    </record>-->
+</odoo>

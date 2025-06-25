@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_patient_user,Access Lab Patient,model_lab_patient,base.group_user,1,0,1,0
+access_lab_test_user,Access Lab Test,model_lab_test,base.group_user,1,1,1,0
+access_lab_radiology_user,Access Lab Radiology,model_lab_radiology,base.group_user,1,1,1,0
+access_lab_doctor_user,Access Lab Doctor,model_lab_doctor,base.group_user,1,0,1,0
+access_lab_invoice_user,Access Lab Invoice,model_account_move,base.group_user,1,0,0,0
+access_lab_admin,Access Lab Admin,model_lab_patient,base.group_system,1,1,1,1

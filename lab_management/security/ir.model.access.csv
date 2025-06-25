@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_patient_user,access_lab_patient_user,model_lab_patient,base.group_user,1,1,1,1
+access_lab_test_type_user,access_lab_test_type_user,model_lab_test_type,base.group_user,1,1,1,1
+access_lab_imaging_type_user,access_lab_imaging_type_user,model_lab_imaging_type,base.group_user,1,1,1,1
+access_lab_patient_visit_user,access_lab_patient_visit_user,model_lab_patient_visit,base.group_user,1,1,1,1
+access_lab_test_result_user,access_lab_test_result_user,model_lab_test_result,base.group_user,1,1,1,1
+access_lab_imaging_result_user,access_lab_imaging_result_user,model_lab_imaging_result,base.group_user,1,1,1,1
+access_lab_patient_invoice,access_lab_patient_invoice,model_lab_patient_invoice,base.group_user,1,1,1,1
+access_select_lab_type_wizard,access_select_lab_type_wizard,model_select_lab_type_wizard,base.group_user,1,1,1,1

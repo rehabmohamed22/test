@@ -1,0 +1,44 @@
+<odoo>
+    <record id="action_generate_patient_invoice" model="ir.actions.server">
+        <field name="name">Generate Invoice</field>
+        <field name="model_id" ref="model_lab_patient_visit"/>
+        <field name="state">code</field>
+        <field name="code">
+invoice = env['lab.patient.invoice'].create({
+    'patient_id': record.patient_id.id,
+    'visit_id': record.id,
+    'invoice_line_ids': [(0, 0, {
+        'service_id': service.id,
+        'quantity': 1,
+        'price_unit': service.list_price
+    }) for service in record.test_type_ids],
+})
+record.message_post(body="Invoice Generated: %s" % invoice.name)
+        </field>
+
+        <field name="code">
+invoice = env['lab.patient.invoice'].create({
+    'patient_id': record.patient_id.id,
+    'visit_id': record.id,
+    'invoice_line_ids': [(0, 0, {
+        'service_id': service.id,
+        'quantity': 1,
+        'price_unit': service.list_price
+    }) for service in record.test_type_ids],
+})
+
+# إرسال الفاتورة بالبريد الإلكتروني
+template = env.ref('lab_management.email_template_patient_invoice')
+mail = env['mail.mail'].create({
+    'subject': 'Your Invoice %s' % invoice.name,
+    'body_html': template.body_html,
+    'email_to': record.patient_id.email,
+})
+mail.send()
+
+record.message_post(body="Invoice Generated and Sent via Email: %s" % invoice.name)
+</field>
+
+    </record>
+</odoo>
+

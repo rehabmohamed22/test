@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_courses,courses,model_courses,base.group_user,1,1,1,1
+access_courses_line,access_courses_line,model_courses_line,base.group_user,1,1,1,1
+access_progress,progress,model_progress,base.group_user,1,1,1,1
+access_evaluation,evaluation,model_evaluation,base.group_user,1,1,1,1

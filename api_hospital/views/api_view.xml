@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="api_hospital_list">
+      <field name="name">api hospital list</field>
+      <field name="model">fetch.data</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="model_api"/>
+          <field name="fields_api"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="api_hospital_form" model="ir.ui.view">
+        <field name="name">api hospital form</field>
+        <field name="model">fetch.data</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="model_api"/>
+                        <field name="model_name"/>
+                        <field name="fields_api"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record id="api_hospital_base_menu_action" model="ir.actions.act_window" >
+      <field name="name">api hospital window</field>
+      <field name="res_model">fetch.data</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="api_hospital_base_menu" name="Api Hospital" sequence="3"/>
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="api_hospital.menu_1" parent="api_hospital.menu_root"/>
+    <menuitem name="Menu 2" id="api_hospital.menu_2" parent="api_hospital.menu_root"/>
+-->
+    <!-- actions -->
+
+    <menuitem name="Api" id="api_hospital_branch" parent="api_hospital_base_menu"
+              action="api_hospital_base_menu_action"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,63 @@
+<odoo>
+    <record id="view_patient_invoice_tree" model="ir.ui.view">
+        <field name="name">lab.patient.invoice.tree</field>
+        <field name="model">lab.patient.invoice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="visit_id"/>
+                <field name="amount_total"/>
+                <field name="payment_status"/>
+                <field name="payment_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_patient_invoice_form" model="ir.ui.view">
+        <field name="name">lab.patient.invoice.form</field>
+        <field name="model">lab.patient.invoice</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_as_paid" type="object" string="Mark as Paid" class="oe_highlight"
+                           invisible="context.get('payment_status') == 'paid'"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="visit_id"/>
+                        <field name="amount_total" readonly="1"/>
+                        <field name="payment_status"/>
+                        <field name="payment_date"/>
+                    </group>
+                    <group>
+                        <field name="invoice_line_ids">
+                            <tree editable="bottom">
+                                <field name="service_id"/>
+                                <field name="quantity"/>
+                                <field name="price_unit"/>
+                                <field name="price_subtotal"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_patient_invoice" model="ir.actions.act_window">
+        <field name="name">Patient Invoices</field>
+        <field name="res_model">lab.patient.invoice</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_lab_billing_root"
+              name="Billing"
+              parent="menu_lab_management_root"
+              />
+
+    <menuitem id="menu_lab_patient_invoice" name="Invoices" parent="menu_lab_billing_root" action="action_patient_invoice"/>
+</odoo>

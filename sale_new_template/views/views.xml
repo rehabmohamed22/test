@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="sale_pdf_quote_builder.action_report_saleorder_raw" model="ir.actions.report">
+            <field name="paperformat_id" ref="sale_new_template.custom_sale_paper_format"/>
+        </record>
+        <record id="sale.action_report_saleorder" model="ir.actions.report">
+            <field name="paperformat_id" ref="sale_new_template.custom_sale_paper_format"/>
+        </record>
+        <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+            <xpath expr='//t[@t-call="web.external_layout"]' position="replace">
+                <div>
+                    <t t-call="web.basic_layout">
+                        <page>
+                            <div class="oe_structure"/>
+                            <t t-call="sale_new_template.inv_header"/>
+                            <t t-call="sale_new_template.partner_info"/>
+                            <t t-call="sale_new_template.inv_lines"/>
+                            <t t-call="sale_new_template.inv_total"/>
+                            <t t-call="sale_new_template.last_table"/>
+                        </page>
+                    </t>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

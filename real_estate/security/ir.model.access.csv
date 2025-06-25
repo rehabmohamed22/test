@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_property,property,model_property,base.group_user,1,1,1,1
+access_accounting,accounting,model_accounting,,1,1,1,1
+access_construction_project,construction_project,model_construction_project,,1,1,1,1
+access_contract,access_contract,model_contract,,1,1,1,1
+access_customer,access_customer,model_customer,,1,1,1,1
+access_equipment,equipment,model_equipment,,1,1,1,1
+access_hr,hr,model_hr,,1,1,1,1
+access_inventory,inventory,model_inventory,,1,1,1,1
+access_subcontractor,subcontractor,model_subcontractor,,1,1,1,1
+access_unit,unit,model_unit,,1,1,1,1

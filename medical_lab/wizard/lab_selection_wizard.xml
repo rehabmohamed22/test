@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_lab_selection_wizard" model="ir.ui.view">
+        <field name="name">lab.selection.wizard.form</field>
+        <field name="model">lab.selection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Test Type">
+                <group>
+                    <button name="open_lab_tests" string="Laboratory Tests" type="object" class="oe_highlight"/>
+                    <button name="open_radiology_tests" string="Radiology Tests" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+   <record id="action_lab_selection_wizard" model="ir.actions.act_window">
+    <field name="name">Select Lab Type</field>
+    <field name="res_model">lab.selection.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<menuitem id="menu_lab_selection_wizard"
+          name="Select Lab Type"
+          parent="medical_lab_test_menu"
+          action="action_lab_selection_wizard"/>
+
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_landed_cost_analytic_tree" model="ir.ui.view">
+        <field name="name">landed.cost.analytic.line.tree</field>
+        <field name="model">landed.cost.analytic.line</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="account_id"/>
+                <field name="percentage"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

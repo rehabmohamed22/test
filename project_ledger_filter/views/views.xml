@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="res_partner_arname_search_view" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ar_name" filter_domain="[('ar_name','=',self)]"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_partner_form_project" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                   <field name="project_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Form View of project-->
+        <record id="project_res_project_view_form" model="ir.ui.view">
+            <field name="name">project.res.project.view.form</field>
+            <field name="model">res.project</field>
+            <field name="arch" type="xml">
+                <form string="project">
+                    <sheet>
+                        <group>
+
+                                <field name="name"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of project-->
+        <record id="project_res_project_view_tree" model="ir.ui.view">
+            <field name="name">project.res.project.view.tree</field>
+            <field name="model">res.project</field>
+            <field name="arch" type="xml">
+                <tree string="project">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--View action for project form view and tree view-->
+        <record id="project_action_res_project" model="ir.actions.act_window">
+            <field name="name">project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to create a new project.
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="project_menu_res_project" name="project"  parent="base.menu_users" action="project_action_res_project" />
+
+    </data>
+</odoo>
+

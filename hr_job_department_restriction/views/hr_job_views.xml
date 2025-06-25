@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_hr_job_form_restriction" model="ir.ui.view">
+        <field name="name">hr.job.form.restriction</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <group>
+                    <field name="job_code"/>
+                    <field name="restricted_department_ids" widget="many2many_tags"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_job_tree_restriction" model="ir.ui.view">
+        <field name="name">hr.job.tree.restriction</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <field name="no_of_recruitment" position="after">
+                <field name="job_code"/>
+                <field name="restricted_department_ids"/>
+<!--                <field name="category_id" options="{'no_create': True}"/>-->
+
+            </field>
+        </field>
+    </record>
+</odoo>

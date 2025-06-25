@@ -1,0 +1,57 @@
+<data>
+    <record id="view_picking_move_inherit" model="ir.ui.view">
+        <field name="name">stock.move.form.inherit.number</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']"
+                   position="before">
+                <field name="index"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_add_line_index" model="ir.actions.server">
+        <field name="name">Index stock Lines</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="binding_model_id" ref="model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">tree</field>
+        <field name="code">
+            action = records.add_index_action()
+        </field>
+    </record>
+
+    <record id="custom_view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="product_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']"
+                   position="attributes">
+                <attribute name="domain">[('id','in',parent.product_ids)]</attribute>
+            </xpath>
+
+        </field>
+    </record>
+     <record id="popup_message_form_view" model="ir.ui.view">
+        <field name="name">popup.message.form</field>
+        <field name="model">popup.message</field>
+        <field name="arch" type="xml">
+            <form string="Confirmation">
+                <group>
+                    <field name="title" readonly="1"/>
+                    <field name="message" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Continue" type="object" class="btn-primary"/>
+                    <button name="action_cancel" string="Cancel" type="object" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</data>

@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_radiology_request_form" model="ir.ui.view">
+        <field name="name">Radiology Request Form</field>
+        <field name="model">lab.radiology.request</field>
+        <field name="arch" type="xml">
+            <form string="Radiology Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="radiology_test_ids" widget="many2many_tags"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_radiology_request_tree" model="ir.ui.view">
+        <field name="name">Radiology Request List</field>
+        <field name="model">lab.radiology.request</field>
+        <field name="arch" type="xml">
+            <tree string="Radiology Requests">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_radiology_request" model="ir.actions.act_window">
+        <field name="name">Radiology Requests</field>
+        <field name="res_model">lab.radiology.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<odoo>
+    <record id="lab_visit_wizard_form" model="ir.ui.view">
+        <field name="name">lab.visit.wizard.form</field>
+        <field name="model">lab.visit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Visit Type">
+                <group>
+                    <field name="patient_id"/>
+                    <field name="visit_type"/>
+                </group>
+                <footer>
+                    <button name="action_proceed" string="Proceed" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_visit_wizard" model="ir.actions.act_window">
+    <field name="name">New Visit</field>
+    <field name="res_model">lab.visit.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<record id="lab_patient_form_view" model="ir.ui.view">
+    <field name="name">lab.patient.form.view</field>
+    <field name="model">lab.patient</field>
+    <field name="arch" type="xml">
+        <form string="Patient">
+            <header>
+                <button name="%(action_open_visit_wizard)d" string="New Visit" type="action" class="oe_highlight"/>
+            </header>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                    <field name="medical_history"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+    <record id="lab_visit_wizard_action" model="ir.actions.act_window">
+        <field name="name">Select Visit Type</field>
+        <field name="res_model">lab.visit.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

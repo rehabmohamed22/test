@@ -1,0 +1,48 @@
+<odoo>
+    <record id="progress_action" model="ir.actions.act_window">
+        <field name="name">Progress</field>
+        <field name="res_model">progress</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="progress_tree_view" model="ir.ui.view">
+    <field name="name">progress.tree</field>
+    <field name="model">progress</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="user_id"/>
+            <field name="finished_videos"/>
+            <field name="progress" widget="progressbar"/>
+            <field name="course_ids" widget="many2many_tags"/> <!-- الحقل الجديد -->
+        </tree>
+    </field>
+</record>
+
+
+<record id="progress_form_view" model="ir.ui.view">
+    <field name="name">progress.form</field>
+    <field name="model">progress</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="user_id"/>
+                    <field name="finished_videos"/>
+                    <field name="finished_courses"/>
+                    <field name="progress" widget="progressbar"/>
+                    <field name="course_ids" widget="many2many_tags"/>
+
+                </group>
+
+            </sheet>
+        </form>
+    </field>
+</record>
+
+    <menuitem
+            id="progress_menu_item"
+            name="Progress"
+            parent="courses_root_menu"
+            action="progress_action"
+    />
+</odoo>

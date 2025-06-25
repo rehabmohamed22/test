@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="add_company_image" model="ir.ui.view">
+            <field name="name">Add Company Image</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='color']" position="after">
+                    <field name="img_before" widget="image"  class="oe_avatar"/>
+                    <field name="img_after" widget="image" class="oe_avatar" />
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

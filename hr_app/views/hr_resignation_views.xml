@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_hr_resignation_tree" model="ir.ui.view">
+        <field name="name">hr.resignation.tree</field>
+        <field name="model">hr.resignation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="resignation_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_resignation_form" model="ir.ui.view">
+        <field name="name">hr.resignation.form</field>
+        <field name="model">hr.resignation</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,rejected"/>
+
+                    <!-- زر الموافقة -->
+                    <button name="action_approve" string="Approve" type="object" class="btn-primary"
+                            modifiers='{"invisible": [["state", "!=", "draft"]]}'/>
+
+                    <!-- زر الرفض -->
+                    <button name="action_reject" string="Reject" type="object" class="btn-danger"
+                            modifiers='{"invisible": [["state", "!=", "draft"]]}'/>
+
+                    <!-- زر الرجوع لمسودة -->
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object"
+                            modifiers='{"invisible": [["state", "=", "draft"]]}'/>
+                </header>
+
+                <group>
+                    <field name="employee_id"/>
+                    <field name="resignation_date"/>
+                    <field name="reason"/>
+                    <field name="manager_id" readonly="1"/>
+                    <field name="resignation_type"/>
+<!--                    <field name="contract_id" readonly="1"/>-->
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_resignation" model="ir.actions.act_window">
+        <field name="name">Resignations</field>
+        <field name="res_model">hr.resignation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_hr_resignation"
+              name="Resignations"
+              parent="hr.menu_hr_root"
+              action="action_hr_resignation"
+              sequence="150"/>
+
+</odoo>
+

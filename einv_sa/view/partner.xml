@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="res_partner_arname_search_view" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ar_name" filter_domain="[('ar_name','=',self)]"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_res_partner_form" model="ir.ui.view">
+            <field name="name">res_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@id='company']" position="before">
+                    <field id="ar_company" class="text-break" name="ar_name" default_focus="1"
+                           placeholder="a.r. لامبرنك"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="other_id"></field>
+                    <field name="contract_value"></field>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="add_some_fields_res_partner" model="ir.ui.view">
+            <field name="name">res_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="l10n_sa_edi.sa_partner_address_form"/>
+            <field name="priority">800</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='street2']" position="after">
+                    <field name="district" placeholder="الحى"/>
+                    <field name="ar_district" placeholder="الحى بالعربى"/>
+                </xpath>
+                <xpath expr="//field[@name='l10n_sa_edi_plot_identification']" position="replace">
+                    <field name="additional_no" placeholder="الرقم الاضافى"/>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="placeholder">Street 2</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_res_company_form" model="ir.ui.view">
+            <field name="name">res_company_form</field>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ar_name" placeholder="اسم الشركة بالعربى"/>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="after">
+                    <field name="account_num"/>
+                    <field name="bank"/>
+                    <field name="iban"/>
+                </xpath>
+                <!--class="o_address_zip"-->
+                <xpath expr="//field[@name='street2']" position="after">
+                    <field name="district" placeholder="الحى"></field>
+                    <field name="ar_district" placeholder="الحى بالعربى"></field>
+                </xpath>
+                <xpath expr="//field[@name='l10n_sa_edi_plot_identification']" position="replace">
+                    <field name="additional_no" placeholder="الرقم الاضافى"/>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="other_id"/>
+                    <field name="signature" widget="image" class="oe_avatar"/>
+                    <field name="stamp" widget="image" class="oe_avatar"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

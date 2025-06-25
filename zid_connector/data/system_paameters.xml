@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.config_parameter" id="zid_integration_customer" >
+            <field name="key">zid_integration_customer</field>
+            <field name="value">1</field>
+        </record>
+
+        <record model="ir.config_parameter" id="zid_integration_product" >
+            <field name="key">zid_integration_product</field>
+            <field name="value">1</field>
+        </record>
+
+        <record model="ir.config_parameter" id="zid_integration_order" >
+            <field name="key">zid_integration_order</field>
+            <field name="value">1</field>
+        </record>
+    </data>
+</odoo>

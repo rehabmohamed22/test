@@ -1,0 +1,18 @@
+<odoo>
+   <record id="view_partner_form_inherit_journals_split" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit.journals.split</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+            <field name="default_invoice_journal_id" domain="[('type','=','sale')]"/>
+            <field name="default_bill_journal_id" domain="[('type','=','purchase')]"/>
+        </xpath>
+<!--        <xpath expr="//field[@name='user_id']" position="after">-->
+<!--            <field name="employee_id"/>-->
+<!--        </xpath>-->
+    </field>
+</record>
+
+
+</odoo>

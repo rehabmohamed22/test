@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_nafis_claim_response_tree" model="ir.ui.view">
+        <field name="name">nafis.claim.response.tree</field>
+        <field name="model">nafis.claim.response</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="claim_id"/>
+                <field name="status"/>
+                <field name="approved_amount"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_nafis_claim_response_form" model="ir.ui.view">
+        <field name="name">nafis.claim.response.form</field>
+        <field name="model">nafis.claim.response</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="claim_id"/>
+                    <field name="status"/>
+                    <field name="message"/>
+                    <field name="approved_amount"/>
+                    <field name="full_response" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

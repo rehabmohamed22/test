@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nafis_patient,access.nafis.patient,model_nafis_patient,,1,1,1,1
+access_nafis_config,access.nafis.config,model_nafis_config,,1,1,1,1
+access_nafis_encounter,access.nafis.encounter,model_nafis_encounter,,1,1,1,1
+access_nafis_claim_user,access.nafis.claim,model_nafis_claim,,1,1,1,1
+access_nafis_claim_response_user,Nafis Claim Response,model_nafis_claim_response,,1,1,1,1
+

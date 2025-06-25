@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_line_serial,sale.order.line.serial.access,model_sale_order_line,,1,1,1,1
+access_purchase_order_line_serial,purchase.order.line.serial.access,model_purchase_order_line,,1,1,1,1
+access_purchase_order,purchase.order.access,model_purchase_order,,1,1,1,1
+access_stock_move_serial,stock.move.serial.access,model_stock_move,,1,1,1,1
+access_stock_picking_serial,stock.picking.serial.access,model_stock_picking,,1,1,1,1
+access_account_move_line_serial,account.move.line.serial.access,model_account_move_line,,1,1,1,1
+access_account_move_serial,account.move.serial.access,model_account_move,,1,1,1,1

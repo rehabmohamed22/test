@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_lab_test_form" model="ir.ui.view">
+        <field name="name">lab.test.form</field>
+        <field name="model">lab.test</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="test_type"/>
+                        <field name="normal_range" studio_conditions="{'invisible': [('test_type', '=', 'radiology')]}"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lab_test_tree" model="ir.ui.view">
+        <field name="name">lab.test.tree</field>
+        <field name="model">lab.test</field>
+        <field name="arch" type="xml">
+            <tree string="Tests">
+                <field name="name"/>
+                <field name="test_type"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_lab_test" model="ir.actions.act_window">
+        <field name="name">Tests</field>
+        <field name="res_model">lab.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,62 @@
+<odoo>
+    <template id="report_journal_entry">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="entry">
+                <div class="page">
+                    <h2 style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px;">
+                        Journal Entry Report
+                    </h2>
+
+                    <p style="font-size: 16px; margin-bottom: 10px;">
+                        <strong>Entry Number:</strong> <t t-esc="entry.name"/>
+                    </p>
+                    <p style="font-size: 16px; margin-bottom: 10px;">
+                        <strong>Journal:</strong> <t t-esc="entry.journal_id.name"/>
+                    </p>
+                    <p style="font-size: 16px; margin-bottom: 10px;">
+                        <strong>Date:</strong> <t t-esc="entry.date"/>
+                    </p>
+                    <p style="font-size: 16px; margin-bottom: 20px;">
+                        <strong>Reference:</strong> <t t-esc="entry.ref or 'N/A'"/>
+                    </p>
+
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <thead style="background-color: #f2f2f2;">
+                            <tr>
+                                <th style="padding: 8px; border: 1px solid #dddddd; text-align: left; font-size: 14px; font-weight: bold;">Account</th>
+                                <th style="padding: 8px; border: 1px solid #dddddd; text-align: left; font-size: 14px; font-weight: bold;">Label</th>
+                                <th style="padding: 8px; border: 1px solid #dddddd; text-align: right; font-size: 14px; font-weight: bold;">Debit</th>
+                                <th style="padding: 8px; border: 1px solid #dddddd; text-align: right; font-size: 14px; font-weight: bold;">Credit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="entry.line_ids" t-as="line">
+                                <tr>
+                                    <td style="padding: 8px; border: 1px solid #dddddd; font-size: 14px;">
+                                        <t t-esc="line.account_id.name"/>
+                                    </td>
+                                    <td style="padding: 8px; border: 1px solid #dddddd; font-size: 14px;">
+                                        <t t-esc="line.name"/>
+                                    </td>
+                                    <td style="padding: 8px; border: 1px solid #dddddd; text-align: right; font-size: 14px;">
+                                        <t t-esc="line.debit"/>
+                                    </td>
+                                    <td style="padding: 8px; border: 1px solid #dddddd; text-align: right; font-size: 14px;">
+                                        <t t-esc="line.credit"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div style="text-align: right; font-size: 16px; margin-top: 30px;">
+                        <strong>Total Debit:</strong> <t t-esc="sum(entry.line_ids.mapped('debit'))"/>
+                    </div>
+                    <div style="text-align: right; font-size: 16px; margin-top: 10px;">
+                        <strong>Total Credit:</strong> <t t-esc="sum(entry.line_ids.mapped('credit'))"/>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

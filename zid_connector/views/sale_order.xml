@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="zid_sale_order" model="ir.ui.view">
+            <field name="name">zid sale order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="zid_order_id"/>
+                    <field name="from_zid"/>
+                    <field name="payment_type"/>
+
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="before">
+                    <field name="price_after_discount"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

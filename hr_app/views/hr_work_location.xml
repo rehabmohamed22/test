@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_work_location_inherit" model="ir.ui.view">
+            <field name="name">hr_work_location_inherit</field>
+            <field name="model">hr.work.location</field>
+            <field name="inherit_id" ref="hr.hr_work_location_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='address_id']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="latitude"/>
+                    <field name="longitude"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

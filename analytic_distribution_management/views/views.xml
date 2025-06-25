@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="partner_view_buttons">
+            <field name="name">partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="11"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <group>
+                        <field name="analytic_distribution" widget="many2many_tags"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sale_view_analytics">
+            <field name="name">sale.view.analytics</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="11"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <group>
+                        <field name="analytic_account_ids" invisible="1"/>
+                        <field name="analytic_account_id" domain="[('id', 'in', analytic_account_ids)]"/>
+
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

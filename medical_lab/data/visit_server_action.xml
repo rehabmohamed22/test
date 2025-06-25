@@ -1,0 +1,32 @@
+<odoo>
+    <record id="server_action_generate_patient_visit_report" model="ir.actions.server">
+        <field name="name">Generate Patient Visit Report</field>
+        <field name="model_id" ref="model_lab_patient_visit"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+report = env.ref('lab_management.action_patient_visit_report')
+pdf_content, content_type = report._render_qweb_pdf([record.id])
+attachment = env['ir.attachment'].create({
+    'name': f'Patient_Visit_Report_{record.id}.pdf',
+    'type': 'binary',
+    'datas': base64.b64encode(pdf_content),
+    'res_model': 'lab.patient.visit',
+    'res_id': record.id,
+})
+
+record.message_post(
+    body="Here is the generated Patient Visit Report.",
+    attachment_ids=[attachment.id]
+)
+        ]]></field>
+    </record>
+
+    <record id="server_action_generate_patient_visit_report_action" model="ir.actions.act_window">
+        <field name="name">Generate Patient Visit Report</field>
+        <field name="res_model">lab.patient.visit</field>
+        <field name="binding_model_id" ref="model_lab_patient_visit"/>
+        <field name="binding_type">action</field>
+        <field name="state">ir.actions.server</field>
+        <field name="server_action_id" ref="server_action_generate_patient_visit_report"/>
+    </record>
+</odoo>

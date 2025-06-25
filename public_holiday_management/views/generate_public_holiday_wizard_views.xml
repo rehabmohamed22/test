@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_generate_public_holiday_wizard" model="ir.ui.view">
+        <field name="name">generate.public.holiday.wizard.form</field>
+        <field name="model">generate.public.holiday.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Public Holidays">
+                <group>
+                    <field name="year"/>
+                    <field name="country_id"/>
+                </group>
+                <footer>
+                    <button name="action_generate" type="object" string="Generate" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_generate_public_holiday_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Holidays</field>
+        <field name="res_model">generate.public.holiday.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_generate_holidays" name="Generate Holidays"
+parent="hr_holidays.menu_hr_holidays_root"
+              action="action_generate_public_holiday_wizard"
+              sequence="200"/>
+</odoo>

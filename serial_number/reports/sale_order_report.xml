@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">-->
+<!--        <xpath expr="//div[@class='text-right o_sale_total']" position="before">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12">-->
+<!--                    <strong>المبلغ بالحروف: </strong>-->
+<!--                    <span t-esc="o.num2word(o.amount_total)"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_installments_board,access.installments.board,model_installments_board,,1,1,1,1
+access_vehicle_purchase_order_custom_user,access_vehicle_purchase_order_custom_user,model_vehicle_purchase_order,,1,1,1,1
+access_installments_import_wizard,access.installments.import.wizard,model_installments_import_wizard,,1,1,1,1
+access_bulk_installment_payment_wizard,access_bulk_installment_payment_wizard,model_bulk_installment_payment_wizard,,1,1,1,1
+access_bulk_installment_payment_line,access_bulk_installment_payment_line,model_bulk_installment_payment_line,,1,1,1,1

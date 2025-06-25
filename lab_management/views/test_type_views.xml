@@ -1,0 +1,78 @@
+<odoo>
+    <!-- Lab Test Type Views -->
+    <record id="lab_test_type_tree" model="ir.ui.view">
+        <field name="name">lab.test.type.tree</field>
+        <field name="model">lab.test.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="reference_range"/>
+                <field name="unit"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lab_test_type_form" model="ir.ui.view">
+        <field name="name">lab.test.type.form</field>
+        <field name="model">lab.test.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="reference_range"/>
+                        <field name="unit"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_lab_test_type" model="ir.actions.act_window">
+        <field name="name">Lab Tests Types</field>
+        <field name="res_model">lab.test.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Imaging Test Type Views -->
+    <record id="imaging_test_type_tree" model="ir.ui.view">
+        <field name="name">lab.imaging.type.tree</field>
+        <field name="model">lab.imaging.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="imaging_test_type_form" model="ir.ui.view">
+        <field name="name">lab.imaging.type.form</field>
+        <field name="model">lab.imaging.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_imaging_test_type" model="ir.actions.act_window">
+        <field name="name">Imaging Tests Types</field>
+        <field name="res_model">lab.imaging.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_test_type" name="Test Types" parent="menu_lab_management_root"/>
+    <menuitem id="menu_lab_test_type" name="Lab Tests" parent="menu_test_type" action="action_lab_test_type"/>
+    <menuitem id="menu_imaging_test_type" name="Imaging Tests" parent="menu_test_type" action="action_imaging_test_type"/>
+</odoo>

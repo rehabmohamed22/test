@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="purchase.report_purchase_quotation" model="ir.actions.report">
+            <field name="paperformat_id" ref="purchase_new_template.custom_purchase_paper_format"/>
+        </record>
+        <template id="report_purchasequotation_document" inherit_id="purchase.report_purchasequotation_document">
+            <xpath expr='//t[@t-call="web.external_layout"]' position="replace">
+                <div>
+                    <t t-call="web.basic_layout">
+                        <page>
+                            <div class="oe_structure"/>
+                            <t t-call="purchase_new_template.rfq_inv_header"/>
+                            <t t-call="purchase_new_template.partner_info"/>
+                            <t t-call="purchase_new_template.inv_lines"/>
+                            <t t-call="purchase_new_template.inv_total"/>
+                            <t t-call="purchase_new_template.last_table"/>
+                        </page>
+                    </t>
+                </div>
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>

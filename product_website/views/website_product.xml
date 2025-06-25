@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="website_product_inherit" model="ir.ui.view">
+            <field name="name">Website Product Inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='purchase_ok']" position="before">
+                    <field name="ticket_limit"/>
+                    <label for="ticket_limit" class="oe_inline"/>
+                </xpath>
+                <xpath expr="//field[@name='optional_product_ids']" position="after">
+                    <group>
+                        <field name="min" invisible="ticket_limit, '=', False"/>
+                        <field name="max" invisible="ticket_limit, '=', True"/>
+                    </group>
+                </xpath>
+                
+<!--                <xpath expr="//field[@name='available_in_pos']" position="after">-->
+<!--                    <group>-->
+<!--                        &lt;!&ndash; min يظهر فقط إذا ticket_limit = True &ndash;&gt;-->
+<!--                        <field name="min" modifiers='{"invisible": [["ticket_limit", "=", false]]}'/>-->
+
+<!--                        &lt;!&ndash; max يظهر فقط إذا ticket_limit = False &ndash;&gt;-->
+<!--                        <field name="max" modifiers='{"invisible": [["ticket_limit", "=", true]]}'/>-->
+<!--                    </group>-->
+<!--                </xpath>-->
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

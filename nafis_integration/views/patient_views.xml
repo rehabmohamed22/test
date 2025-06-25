@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_nafis_patient_form" model="ir.ui.view">
+        <field name="name">nafis.patient.form</field>
+        <field name="model">nafis.patient</field>
+        <field name="arch" type="xml">
+            <form string="Nafis Patient">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="national_id"/>
+                        <field name="gender"/>
+                        <field name="birth_date"/>
+                        <field name="visit_date"/>
+                    </group>
+                    <button name="send_to_nafis" type="object" string="Send to Nafis (Test)" class="btn-primary"/>
+                    <button name="test_nafis_token" type="object" string="Test Token Only" class="btn-secondary"/>
+                    <group>
+                        <field name="nafis_response" widget="text" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nafis_patient_tree" model="ir.ui.view">
+        <field name="name">nafis.patient.tree</field>
+        <field name="model">nafis.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Nafis Patients">
+                <field name="name"/>
+                <field name="national_id"/>
+                <field name="gender"/>
+                <field name="visit_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_nafis_patient" model="ir.actions.act_window">
+        <field name="name">Nafis Patients</field>
+        <field name="res_model">nafis.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_nafis_root" name="Nafis Integration"/>
+    <menuitem id="menu_nafis_patient" name="Patients" parent="menu_nafis_root" action="action_nafis_patient"/>
+</odoo>

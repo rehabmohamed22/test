@@ -1,0 +1,76 @@
+<odoo>
+    <record id="view_nafis_claim_form" model="ir.ui.view">
+        <field name="name">nafis.claim.form</field>
+        <field name="model">nafis.claim</field>
+        <field name="arch" type="xml">
+            <form string="Claim">
+                <header>
+                    <button name="send_to_nafis" type="object" string="Send to Nafis" class="btn-primary"/>
+                    <button name="action_preview_fhir" type="object" string="Preview Payload"/>
+                    <button name="action_export_excel" type="object" string="Export Excel" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="encounter_id"/>
+                        <field name="insurer"/>
+                        <field name="amount"/>
+                        <field name="diagnosis"/>
+                        <field name="procedure"/>
+                        <field name="nafis_response" readonly="1"/>
+                        <field name="fhir_payload_preview" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Claim Responses">
+                            <field name="claim_response_ids">
+                                <tree>
+                                    <field name="status"/>
+                                    <field name="approved_amount"/>
+                                    <field name="create_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nafis_claim_tree" model="ir.ui.view">
+        <field name="name">nafis.claim.tree</field>
+        <field name="model">nafis.claim</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="insurer"/>
+                <field name="amount"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_nafis_claim_search" model="ir.ui.view">
+        <field name="name">nafis.claim.search</field>
+        <field name="model">nafis.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient_id"/>
+                <field name="insurer"/>
+                <field name="create_date" filter_domain="['|', ('create_date','&gt;=',self), ('create_date','&lt;=',self)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_patient" string="Patient" domain="[]" context="{'group_by': 'patient_id'}"/>
+                    <filter name="group_date" string="Date" domain="[]" context="{'group_by': 'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_nafis_claim" model="ir.actions.act_window">
+        <field name="name">Claims</field>
+        <field name="res_model">nafis.claim</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_nafis_claim_search"/>
+    </record>
+
+    <menuitem id="menu_nafis_claim_root" name="Claims" parent="menu_nafis_root" action="action_nafis_claim" sequence="30"/>
+</odoo>

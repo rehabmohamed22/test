@@ -1,0 +1,28 @@
+<odoo>
+    <menuitem id="lab_management_main_menu" name="Lab Management" sequence="1"/>
+
+    <menuitem id="lab_management_patient_menu" name="Patients"
+              parent="lab_management_main_menu" sequence="2"/>
+
+    <menuitem id="lab_management_tests_menu" name="Tests"
+              parent="lab_management_main_menu" sequence="3"/>
+
+    <menuitem id="lab_management_radiology_menu" name="Radiology"
+              parent="lab_management_main_menu" sequence="4"/>
+
+    <menuitem id="lab_management_invoice_menu" name="Invoices"
+              parent="lab_management_main_menu" sequence="5"/>
+
+    <!-- القوائم الفرعية -->
+    <menuitem id="lab_patient_menu" name="Patients" parent="lab_management_patient_menu"
+              action="lab_management_moudule.lab_patient_action"/>
+
+    <menuitem id="lab_test_menu" name="Lab Tests" parent="lab_management_tests_menu"
+              action="lab_management_moudule.lab_test_action"/>
+
+    <menuitem id="lab_radiology_menu" name="Radiology Tests" parent="lab_management_radiology_menu"
+              action="lab_management_moudule.lab_radiology_action"/>
+
+    <menuitem id="lab_invoice_menu" name="Invoices" parent="lab_management_invoice_menu"
+              action="lab_management.lab_invoice_action"/>
+</odoo>

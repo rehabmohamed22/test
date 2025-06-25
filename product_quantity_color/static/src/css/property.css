@@ -1,0 +1,4 @@
+.low-stock {
+    background-color: #ffcccc !important; /* لون أحمر فاتح */
+    border-left: 5px solid red !important;
+}

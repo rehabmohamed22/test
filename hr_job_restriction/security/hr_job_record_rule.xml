@@ -1,0 +1,10 @@
+<odoo>
+    <record id="hr_job_restricted_rule" model="ir.rule">
+        <field name="name">Restricted Job Positions by Department</field>
+        <field name="model_id" ref="hr.model_hr_job"/>
+        <field name="domain_force">
+            ['|', ('restricted_department_ids', '=', False), ('restricted_department_ids', 'in', user.employee_id.department_id.id)]
+        </field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

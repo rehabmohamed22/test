@@ -1,0 +1,116 @@
+<odoo>
+    <record id="patient_visit_tree" model="ir.ui.view">
+        <field name="name">lab.patient.visit.tree</field>
+        <field name="model">lab.patient.visit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="visit_date"/>
+                <field name="state" widget="statusbar"/>
+                <field name="invoice_id" string="Invoice"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="patient_visit_form" model="ir.ui.view">
+        <field name="name">lab.patient.visit.form</field>
+        <field name="model">lab.patient.visit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open_test_wizard"
+                         string="Select Tests"
+                         type="object"
+                         class="oe_stat_button"
+                         icon="fa-flask"/>
+                    <!-- ✅ تعديل الأزرار بإزالة attrs واستخدام modifiers -->
+                    <button name="action_create_invoice" type="object" string="Create Invoice"
+                            class="oe_highlight"
+                            modifiers="{'invisible': [['state', '!=', 'draft']]}"/>
+
+                    <button name="action_mark_as_paid" type="object" string="Mark as Paid"
+                            class="oe_highlight"
+                            modifiers="{'invisible': [['state', '!=', 'invoiced']]}"/>
+
+                    <button name="action_close_visit" type="object" string="Close Visit"
+                            class="oe_highlight"
+                            modifiers="{'invisible': [['state', '!=', 'paid']]}"/>
+
+                    <button name="%(action_patient_visit_report)d" string="Print Report" type="action" class="oe_highlight"/>
+                <button name="action_open_invoice" type="object" string="Open Invoice"
+                  class="oe_stat_button" icon="fa-file-invoice"
+                        modifiers="{'invisible': [['invoice_id', '=', False]]}"/>
+                <field name="invoice_id" string="Invoice" readonly="1"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="state" widget="statusbar" options="{'clickable': False}"/>
+                    </group>
+
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="visit_date"/>
+                    </group>
+
+                    <group>
+                        <!-- ✅ زر ذكي لفتح الفاتورة -->
+                        <button name="action_open_invoice" type="object" string="Open Invoice"
+                                class="oe_stat_button" icon="fa-file-invoice"
+                                modifiers="{'invisible': [['invoice_id', '=', False]]}"/>
+                        <field name="invoice_id" string="Invoice" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Lab Tests">
+                            <field name="lab_test_ids"/>
+                        </page>
+                        <page string="Imaging Tests">
+                            <field name="imaging_test_ids"/>
+                        </page>
+                        <page string="Lab Test Results">
+                            <field name="test_result_ids">
+                                <tree>
+                                    <field name="test_id"/>
+                                    <field name="result_value"/>
+                                    <field name="normal_range"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Imaging Results">
+                            <field name="imaging_result_ids">
+                                <tree>
+                                    <field name="imaging_type_id"/>
+                                    <field name="findings"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+
+                    <!-- ✅ زر فتح التقرير مباشرة -->
+                    <button type="object" name="action_open_report" string="View Report"
+                            class="oe_stat_button" icon="fa-file-pdf-o"
+                            modifiers="{'invisible': [['report_url', '=', False]]}"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ✅ Action -->
+    <record id="action_lab_patient_visit" model="ir.actions.act_window">
+        <field name="name">Patient Visits</field>
+        <field name="res_model">lab.patient.visit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- ✅ Menu -->
+    <menuitem id="menu_patient_visits" name="Patient Visits" parent="menu_lab_management_root" action="action_lab_patient_visit"/>
+</odoo>

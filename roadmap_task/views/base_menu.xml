@@ -1,0 +1,17 @@
+       <odoo>
+    <menuitem
+       id="courses_root_menu"
+       name="Courses"
+    />
+    <menuitem
+       id="courses_menu"
+       name="Courses"
+       parent="courses_root_menu"
+    />
+    <menuitem
+       id="progress_menu"
+       name="Progress"
+       parent="courses_root_menu"
+    />
+
+</odoo>

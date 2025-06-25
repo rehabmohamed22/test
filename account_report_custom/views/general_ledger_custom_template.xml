@@ -1,0 +1,27 @@
+<odoo>
+  <template id="general_ledger_custom_template">
+    <t t-call="account_reports.template_account_report">
+      <t t-set="report_name">GENERAL LEDGER ✅ TEST TEMPLATE LOADED</t>
+      <t t-set="report_options" t-value="options"/>
+      <t t-set="report_lines" t-value="lines"/>
+
+      <div style="text-align:center; margin: 30px 0; font-size: 18px; color: #007bff;">
+        ✅ This is a test message from your custom template. If you see this, the override is working!
+      </div>
+       <strong>🗓️ Date Range:</strong>
+
+      <t t-if="report_options.get('date')">
+        <div style="text-align:center; margin: 20px 0;">
+          <div style="display:inline-block; background-color:#e0e0e0; padding:10px 20px; border-radius:8px; font-size:14px;">
+            <strong>Date Range:</strong>
+            <t t-esc="formatLang(report_options['date'].get('date_from'), date=True)"/>
+            →
+            <t t-esc="formatLang(report_options['date'].get('date_to'), date=True)"/>
+          </div>
+        </div>
+      </t>
+
+      <t t-call="account_reports.template_report_lines"/>
+    </t>
+  </template>
+</odoo>

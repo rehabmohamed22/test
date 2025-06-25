@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ░▒ Add to Form View ▒░ -->
+    <record id="crm_team_form_inherit_employee" model="ir.ui.view">
+        <field name="name">crm.team.form.employee</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="employee_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ░▒ Add to Tree View ▒░ -->
+    <record id="crm_team_tree_inherit_employee" model="ir.ui.view">
+        <field name="name">crm.team.tree.employee</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="employee_id"/>
+            </xpath>
+        </field>
+    </record>
+
+   <record id="crm_team_search_inherit_employee" model="ir.ui.view">
+    <field name="name">crm.team.search.inherit.employee</field>
+    <field name="model">crm.team</field>
+    <field name="inherit_id" ref="sales_team.crm_team_view_search"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+            <field name="employee_id"/>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

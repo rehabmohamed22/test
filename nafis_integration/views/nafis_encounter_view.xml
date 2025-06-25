@@ -1,0 +1,48 @@
+<odoo>
+    <menuitem id="menu_nafis_root" name="Nafis Integration" sequence="10"/>
+
+    <record id="view_nafis_encounter_tree" model="ir.ui.view">
+        <field name="name">nafis.encounter.tree</field>
+        <field name="model">nafis.encounter</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="encounter_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_nafis_encounter_form" model="ir.ui.view">
+        <field name="name">nafis.encounter.form</field>
+        <field name="model">nafis.encounter</field>
+        <field name="arch" type="xml">
+            <form string="Encounter">
+                <header>
+                    <button name="send_to_nafis" type="object" string="Send to Nafis" class="btn-primary"/>
+                    <button name="action_preview_fhir" type="object" string="Preview Payload"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="encounter_type"/>
+                        <field name="reason"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="nafis_response" readonly="1"/>
+                        <field name="fhir_payload_preview" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_nafis_encounter" model="ir.actions.act_window">
+        <field name="name">Encounters</field>
+        <field name="res_model">nafis.encounter</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_nafis_encounter_root" name="Encounters" parent="menu_nafis_root" action="action_nafis_encounter" sequence="20"/>
+</odoo>

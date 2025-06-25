@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record id="custom_add_operation_tree_view_inherited" model="ir.ui.view">
+            <field name="name">mrp.routing.workcenter.tree.view.inherited</field>
+            <field name="model">mrp.routing.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_routing_workcenter_tree_view"/>
+            <field name="arch" type="xml">
+                <!--                <xpath expr="//tree" position="inside">-->
+                <!--                    <control>-->
+                <!--                        <button name="add_operations" class="btn-link" type="object" string="Add Operations"-->
+                <!--                                context="{'default_bom_id': parent.id}"/>-->
+                <!--                    </control>-->
+                <!--                </xpath>-->
+                <xpath expr="//field[@name='time_cycle']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="custom_mrp_routing_workcenter_add_to_bom_tree_view" model="ir.ui.view">
+            <field name="name">mrp.routing.workcenter.copy_to_bom.tree</field>
+            <field name="model">mrp.routing.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_routing_workcenter_tree_view"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <header>
+                        <button name="add_to_bom" type="object" string="Add selected operations"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+        <record id="custom_mrp_routing_workcenter_tree_view_editable_bottom" model="ir.ui.view">
+            <field name="name">mrp.routing.workcenter.editable.tree</field>
+            <field name="model">mrp.routing.workcenter</field>
+            <field name="inherit_id" ref="mrp.mrp_routing_workcenter_tree_view"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="editable">bottom</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="custom_mrp_bom_form_view_operation_ids_edits" model="ir.ui.view">
+            <field name="name">mrp.bom.form</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='operations']" position="replace">
+                    <page string="Operations" name="operations" invisible="type not in ('normal', 'phantom')"
+                          groups="mrp.group_mrp_routings">
+                        <field name="operation_ids" invisible="type not in ('normal', 'phantom')"
+                               groups="mrp.group_mrp_routings"
+                               context="{'bom_id_invisible': True, 'default_bom_id': id, 'tree_view_ref': 'manufacuring_edits.custom_mrp_routing_workcenter_tree_view_editable_bottom'}"/>
+                    </page>
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <button name="add_operation" string="Add Operations" type="object" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+
+
+   </data>
+</odoo>

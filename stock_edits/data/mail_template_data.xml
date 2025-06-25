@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+        <record id="mail_template_data_delivery" model="mail.template">
+            <field name="name">Shipping: Send by Email</field>
+            <field name="model_id" ref="model_stock_picking"/>
+            <field name="subject">{{ object.company_id.name }} Delivery Order (Ref {{ object.name or 'n/a' }})</field>
+            <field name="email_to">{{ object.employee_id.work_email }}</field>
+            <field name="description">Sent to the customers when orders are delivered, if the setting is enabled</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello <t t-out="object.employee_id.name or ''">Brandon Freeman</t>,
+                        <br/>
+                        <br/>
+                        We are glad to inform you that your order has been shipped.
+                        <t t-if="object.name">
+                            Your tracking reference is
+                            <a t-attf-href="https://afifi.odoo.com/web#id={{ object.id }}&amp;model=stock.picking&amp;view_type=form"
+                                   target="_blank">
+                                    <t t-out="object.name"/>
+                                </a>
+                        </t>
+
+                            <br/>
+                            <br/>
+                        <strong>
+                            <t t-if="object.sale_id">
+                                Sales Order:
+                                <a t-attf-href="https://afifi.odoo.com/web#id={{ object.sale_id.id }}&amp;model=sale.order&amp;view_type=form"
+                                   target="_blank">
+                                    <t t-out="object.sale_id.name"/>
+                                </a>
+                                <br/>
+                                <br/>
+                            </t>
+                            <br/>
+                            <br/>
+                            <t t-if="object.purchase_id">
+                                Purchase Order:
+                                <a t-attf-href="https://afifi.odoo.com/web#id={{ object.purchase_id.id }}&amp;model=purchase.order&amp;view_type=form"
+                                   target="_blank">
+                                    <t t-out="object.purchase_id.name"/>
+                                </a>
+                                <br/>
+                                <br/>
+                            </t>
+                        </strong>
+
+                        <br/>
+                        <br/>
+                        Please find your delivery order attached for more details.
+                        <br/>
+                        <br/>
+                        Thank you,
+                        <t t-if="user.signature">
+                            <br/>
+                            <t t-out="user.signature or ''">--<br/>Mitchell Admin
+                            </t>
+                        </t>
+                    </p>
+                </div>
+            </field>
+            <field name="report_template_ids" eval="[(4, ref('stock.action_report_delivery'))]"/>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+</odoo>

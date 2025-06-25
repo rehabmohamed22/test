@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_stock_move_line_search_inherit_picking_date" model="ir.ui.view">
+        <field name="name">stock.move.line.search.inherit.picking.date</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.stock_move_line_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <field name="picking_date"/>
+                <filter name="picking_date_today" string="Picking Today" domain="[('picking_date', '=', context_today())]"/>
+
+                <!-- Group By Picking Date -->
+                <group expand="1" string="Group By">
+                    <filter name="group_by_picking_date" string="Picking Date" context="{'group_by': 'picking_date'}"/>
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

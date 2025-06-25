@@ -1,0 +1,17 @@
+<!-- views/hr_job_views.xml -->
+<odoo>
+    <record id="view_hr_job_form_inherit" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.restricted</field>
+        <field name="model">hr.job</field>
+       <field name="inherit_id" ref="hr.view_hr_job_form"/>
+       <field name="arch" type="xml">
+           <sheet position="inside">
+             <group>
+                 <field name="restricted_department_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                 <field name="category_id"/>
+
+             </group>
+           </sheet>
+         </field>
+      </record>
+</odoo>

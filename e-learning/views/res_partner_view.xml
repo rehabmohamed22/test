@@ -1,0 +1,23 @@
+<odoo>
+   <!-- Res Partner Form -->
+    <record id="view_partner_form_inherited" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <group string="Basic Info">
+                    <field name="age"/>
+                    <field name="course_product_id" widget="many2one"/>
+                    <field name="education_type"/>
+                </group>
+                <group string="Guardian And Booking Info">
+                    <field name="source_id" widget="many2one"/>
+                    <field name="booking_type"/>
+                    <field name="guardian_name"/>
+                    <field name="guardian_phone"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

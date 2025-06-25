@@ -1,0 +1,56 @@
+<odoo>
+    <!-- Action for the Evaluation menu -->
+    <record id="evaluation_action" model="ir.actions.act_window">
+        <field name="name">Evaluations</field>
+        <field name="res_model">evaluation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree View for Evaluation -->
+    <record id="evaluation_tree_view" model="ir.ui.view">
+        <field name="name">evaluation.tree</field>
+        <field name="model">evaluation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="finished_courses"/>
+                <field name="course_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Evaluation -->
+<odoo>
+    <record id="evaluation_form_view" model="ir.ui.view">
+        <field name="name">evaluation.form</field>
+        <field name="model">evaluation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="action_view_courses"
+                                type="object"
+                                string="View Enrolled Courses"
+                                class="oe_stat_button"/>
+
+                    </header>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="finished_courses"/>
+                        <field name="course_ids" widget="many2many_tags"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+
+    <!-- Menu Item for Evaluation -->
+    <menuitem
+        id="evaluation_menu_item"
+        name="Evaluation"
+        parent="courses_root_menu"
+        action="evaluation_action"
+    />
+</odoo>

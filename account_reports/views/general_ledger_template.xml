@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="general_ledger_custom_template">
+    <t t-call="account_reports.template_account_report">
+      <t t-set="report_name">GENERAL LEDGER</t>
+      <t t-set="report_options" t-value="options"/>
+      <t t-set="report_lines" t-value="lines"/>
+
+      <!-- ✅ عرض التاريخ -->
+      <t t-if="report_options.get('date')">
+        <div style="text-align:center; margin: 20px 0;">
+          <div style="display:inline-block; background-color:#f0f0f0; padding:10px 20px; border-radius:6px; font-size:14px;">
+            <strong>🗓️ Date Range:</strong>
+            <t t-esc="formatLang(report_options['date'].get('date_from'), date=True)"/>
+            →
+            <t t-esc="formatLang(report_options['date'].get('date_to'), date=True)"/>
+          </div>
+        </div>
+      </t>
+
+      <t t-call="account_reports.template_report_lines"/>
+    </t>
+  </template>
+</odoo>

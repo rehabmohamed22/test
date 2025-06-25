@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_elearning_invoice_elearning_invoice,elearning_invoice.elearning_invoice,model_elearning_invoice_elearning_invoice,base.group_user,1,1,1,1

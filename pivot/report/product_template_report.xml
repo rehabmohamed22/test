@@ -1,0 +1,108 @@
+<odoo>
+    <template id="pivot_product_report_detail_pdf">
+        <t t-call="web.basic_layout">
+            <t t-set="now" t-value="datetime.datetime.now()"/>
+            <t t-set="am_pm" t-value="now.strftime('%p')"/>
+            <t t-set="doc_ids" t-value="docids"/>
+            <t t-set="doc_model" t-value="doc_model"/>
+            <t t-set="docs" t-value="docs"/>
+
+            <div class="page" style="margin: 0;">
+                <!-- Header Section -->
+                <div class="header" style="margin-bottom: 20px; padding: 10px;">
+                    <div class="row" style="margin-bottom: 25px; display: flex; align-items: center;">
+                        <div class="col-4 text-start" style="flex: 1;margin-left: 0px;">
+                            <t t-if="am_pm == 'AM'">ص</t>
+                            <t t-else="">م</t>
+                            <span t-esc="datetime.date.today().strftime('%Y-%m-%d %H:%M')"/>
+                        </div>
+                        <!-- Title Section -->
+                        <div class="col-4 text-center" style="flex: 1; text-align: center;margin-top: 20px;">
+                            <h3 style="margin-top: 40px; font-size: 15px;">Product Details Report</h3>
+                        </div>
+                    </div>
+                    <!-- Logo Section -->
+                    <div class="row" style="display: flex; align-items: center; margin-top: 5px;">
+                        <div class="col-8 text-start" style="flex: 1; margin-right: 20px;margin-left: 25px;"></div>
+                        <div class="col-4 text-end" style="flex: 1;">
+                            <img t-att-src="'/pivot/static/src/img/logo.jpg'"
+                                 style="max-height: 70px; max-width: 220px; vertical-align: middle; margin-right: 30px;"
+                                 alt="Logo"/>
+                        </div>
+                    </div>
+                    <!-- Separator Line -->
+                    <div style="height: 1px; background-color: #d3d3d3; margin-bottom: 10px;margin-top: 5px;"></div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="main-content" style="width: 100%;">
+                    <div class="mt-4" style="width: 100%;">
+                        <table class="table table-striped table-bordered text-nowrap"
+                               style="width: 100%; font-size: 10px; padding: 2px;" dir="rtl">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th style="text-align: center;">
+                                        #
+                                    </th>
+                                    <th style="text-align: ">
+                                        رقم
+                                        العقد
+                                    </th>
+                                    <th style="text-align: center;">
+                                        اسم العقار
+                                    </th>
+                                    <th style="text-align:center; ">
+                                        العقار الرئيسي
+                                    </th>
+                                    <th style="text-align: center;">
+                                        نوع العقار
+                                    </th>
+                                    <th style="text-align: center;">حالة
+                                        العقار
+                                    </th>
+                                    <th style="text-align: center; ">internal
+                                        reference
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="index" t-value="0"/>
+                                <t t-set="row" t-value="0"/>
+
+                                <t t-foreach="docs" t-as="doc">
+                                    <tr t-att-style="'background-color: %s;' % ('#eef8ff' if index % 2 == 0 else 'white')"
+                                        style="text-align: center;">
+                                        <td style="text-align: center;">
+                                            <t t-esc="index + 1"/>
+                                        </td>
+                                        <td style="text-align: center; word-wrap: break-word; white-space: normal; width: 150px; height: 50px;">
+                                            <t t-esc="doc.order_numbers"/>
+                                        </td>
+
+
+                                        <td style="text-align: center;">
+                                            <t t-esc="doc.name"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="doc.categ_id.name"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="doc.product_tag_names"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="doc.rental_order_type"/>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <t t-esc="doc.default_code"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="index" t-value="index + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

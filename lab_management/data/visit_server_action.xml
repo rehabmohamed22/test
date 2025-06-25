@@ -1,0 +1,36 @@
+<odoo>
+<!--    &lt;!&ndash; تعريف Server Action &ndash;&gt;-->
+<!--    <record id="server_action_generate_patient_visit_report" model="ir.actions.server">-->
+<!--        <field name="name">Generate Patient Visit Report</field>-->
+<!--        <field name="model_id" ref="model_lab_patient_visit"/>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="binding_model_id" ref="model_lab_patient_visit"/>-->
+<!--        <field name="binding_type">action</field>-->
+<!--        <field name="code"><![CDATA[-->
+<!--# البحث عن التقرير-->
+<!--report = env.ref('lab_management.action_patient_visit_report')-->
+
+<!--# التأكد من أن `report` ليس قائمة-->
+<!--if isinstance(report, list):-->
+<!--    report = report[0]  # استخدم العنصر الأول فقط-->
+
+<!--# توليد التقرير PDF-->
+<!--pdf_content, content_type = report._render_qweb_pdf([record.id])-->
+
+<!--# حفظ التقرير كمرفق-->
+<!--attachment = env['ir.attachment'].create({-->
+<!--    'name': 'Patient_Visit_Report_%s.pdf' % record.id,-->
+<!--    'type': 'binary',-->
+<!--    'datas': base64.b64encode(pdf_content),-->
+<!--    'res_model': 'lab.patient.visit',-->
+<!--    'res_id': record.id,-->
+<!--})-->
+
+<!--# إرسال التقرير إلى سجل المريض-->
+<!--record.message_post(-->
+<!--    body="Here is your Patient Visit Report.",-->
+<!--    attachment_ids=[attachment.id]-->
+<!--)-->
+<!--        ]]></field>-->
+<!--    </record>-->
+</odoo>

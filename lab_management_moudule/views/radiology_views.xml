@@ -1,0 +1,22 @@
+<odoo>
+    <record id="radiology_form_view" model="ir.ui.view">
+        <field name="name">lab.radiology.form.view</field>
+        <field name="model">lab.radiology</field>
+        <field name="arch" type="xml">
+            <form string="Radiology Test">
+                <header>
+                    <button name="%(radiology_report)d" string="Print Report" type="action" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="radiology_name"/>
+                        <field name="result_description"/>
+                        <field name="result_status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

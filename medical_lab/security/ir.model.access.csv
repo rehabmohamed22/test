@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_test,access_lab_test,model_medical_lab_test,,1,1,1,1
+access_patient,access_patient,model_medical_patient,,1,1,1,1
+access_medical_lab_test_result,access_medical_lab_test_result,model_medical_lab_test_result,,1,1,1,1
+access_lab_selection_wizard,access_lab_selection_wizard,model_lab_selection_wizard,,1,1,1,1
+

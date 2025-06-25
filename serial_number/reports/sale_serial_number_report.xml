@@ -1,0 +1,26 @@
+<odoo>
+   <!-- Inherit the sale order report template -->
+    <template id="report_sale_order_inherit" inherit_id="sale.report_saleorder_document">
+        <!-- Add the Serial column to the table header -->
+        <xpath expr="//thead/tr" position="inside">
+            <th style="text-align: center;">#</th>
+        </xpath>
+
+        <!-- Add the Serial column to the table body -->
+        <xpath expr="//tbody/tr" position="inside">
+            <td style="text-align: center;">
+                <t t-esc="Text"/>
+            </td>
+        </xpath>
+    </template>
+
+    <!-- تأكيد إضافة التقرير الذي يتم توريثه -->
+    <report
+        id="sale_order_report_inherit"
+        model="sale.order"
+        string="Sale Order Report"
+        report_type="qweb-pdf"
+        name="sale.report_saleorder_document"
+        file="sale.report_saleorder"
+    />
+</odoo>

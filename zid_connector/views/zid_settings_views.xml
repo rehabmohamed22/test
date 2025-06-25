@@ -1,0 +1,37 @@
+<odoo>
+    <!-- views/zid_settings_views.xml -->
+<record id="view_zid_settings_form" model="ir.ui.view">
+    <field name="name">zid.settings.form</field>
+    <field name="model">zid.settings</field>
+    <field name="arch" type="xml">
+        <form string="Zid Settings">
+            <header>
+                <button name="action_connect"
+                        type="object"
+                        string="Connect with Zid"
+                        class="btn-primary"/>
+            </header>
+            <group>
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="client_secret"/>
+                <field name="access_token" readonly="1"/>
+                <field name="refresh_token" readonly="1"/>
+                <field name="authorization" readonly="1"/>
+            </group>
+
+        </form>
+    </field>
+</record>
+
+
+    <record id="zid_settings_action" model="ir.actions.act_window">
+        <field name="name">Zid Integration</field>
+        <field name="res_model">zid.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="zid_settings_menu" name="Zid Integration" parent="zid_root_menu" action="zid_settings_action"/>
+</odoo>
+

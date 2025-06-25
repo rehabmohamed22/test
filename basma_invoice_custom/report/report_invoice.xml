@@ -1,0 +1,16 @@
+<odoo>
+    <template id="report_invoice_template">
+        <t t-call="web.basic_layout">
+            <t t-set="docs" t-value="docs"/>
+            <div class="page">
+                <h2 style="text-align:center;">Basma Academy</h2>
+                <p><strong>Student Name:</strong> <t t-esc="doc.partner_name"/></p>
+                <p><strong>Course:</strong> <t t-esc="doc.name"/></p>
+                <p><strong>Date:</strong> <t t-esc="doc.create_date.strftime('%Y-%m-%d')"/></p>
+                <p><strong>Amount:</strong> 750 SAR</p>
+                <br/>
+                <p><strong>Signature:</strong> _____________________</p>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+<!--    <record id="contact_form_task" model="ir.ui.view">-->
+<!--        <field name="name">contact form task</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
+<!--        <field name="arch" type="xml">-->
+
+<!--            <xpath expr="//field[@name='vat']" position="after">-->
+<!--                &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--                <field name="term" string="Payment Term"/>-->
+
+<!--            </xpath>-->
+
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_hr_form" model="ir.ui.view">
+        <field name="name">construction.hr.form</field>
+        <field name="model">construction.hr</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="job_position"/>
+                        <field name="salary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

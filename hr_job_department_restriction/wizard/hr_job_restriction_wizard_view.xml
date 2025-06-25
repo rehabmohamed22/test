@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_hr_job_restriction_wizard" model="ir.ui.view">
+        <field name="name">hr.job.restriction.wizard.form</field>
+        <field name="model">hr.job.restriction.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Job Restriction Filter">
+                <group>
+                    <field name="department_id"/>
+                    <field name="category_id"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print Report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_job_restriction_wizard" model="ir.actions.act_window">
+        <field name="name">Job Restriction Filter</field>
+        <field name="res_model">hr.job.restriction.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hr_job_wizard_root" name="Job Filters"/>
+
+    <menuitem id="menu_hr_job_restriction_wizard"
+              name="Filter Jobs"
+              parent="menu_hr_job_wizard_root"
+              action="action_hr_job_restriction_wizard"/>
+</odoo>

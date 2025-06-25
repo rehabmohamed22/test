@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="stock_view_analytic_distribution">
+            <field name="name">stock.view.analytic.distribution</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='return_location']" position="after">
+                    <group>
+<field name="analytic_distribution" widget="account.analytic.distribution"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

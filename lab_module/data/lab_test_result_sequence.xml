@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="seq_lab_test_result" model="ir.sequence">
+        <field name="name">Lab Test Result</field>
+        <field name="code">lab.test.result</field>
+        <field name="prefix">RES-</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

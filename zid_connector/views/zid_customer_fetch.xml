@@ -1,0 +1,33 @@
+<!-- views/zid_customer_fetch_view.xml -->
+<odoo>
+    <record id="view_zid_customer_fetch_form" model="ir.ui.view">
+        <field name="name">zid.customer.fetch.form</field>
+        <field name="model">zid.customer.fetch</field>
+        <field name="arch" type="xml">
+            <form string="Fetch Zid Customer">
+                <group>
+                    <field name="zid_customer_id"/>
+                    <button string="Fetch Customer" type="object" name="action_fetch_customer" class="btn-primary"/>
+                </group>
+                <separator string="Customer Info"/>
+                <group>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="gender"/>
+                    <field name="created_at"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_zid_customer_fetch" model="ir.actions.act_window">
+        <field name="name">Fetch Zid Customer</field>
+        <field name="res_model">zid.customer.fetch</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_zid_customer_fetch" name="Get Customer By Id" parent="customer_menu"
+              action="action_zid_customer_fetch"/>
+</odoo>

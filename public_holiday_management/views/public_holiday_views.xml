@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_public_holiday_tree" model="ir.ui.view">
+        <field name="name">public.holiday.tree</field>
+        <field name="model">public.holiday</field>
+        <field name="arch" type="xml">
+            <tree>
+    <field name="name"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="number_of_days"/>
+    <field name="state"/>
+</tree>
+
+        </field>
+    </record>
+
+    <record id="view_public_holiday_form" model="ir.ui.view">
+        <field name="name">public.holiday.form</field>
+        <field name="model">public.holiday</field>
+        <field name="arch" type="xml">
+            <form string="Public Holiday">
+    <header>
+    <button name="action_approve" type="object" string="Approve"/>
+    <button name="action_refuse" type="object" string="Refuse"/>
+    <field name="state" widget="statusbar" statusbar_visible="to_approve,approved,refused"/>
+</header>
+
+
+    <sheet>
+        <field name="name" placeholder="e.g. Eid Holiday"/>
+
+        <group string="Apply On" col="4">
+            <field name="apply_on_employee"/>
+            <field name="apply_on_department"/>
+            <field name="apply_on_tags"/>
+        </group>
+
+        <group>
+            <field name="date_from"/>
+            <field name="date_to"/>
+        </group>
+        <group>
+            <field name="number_of_days" readonly="1"/>
+        </group>
+        <field name="notes" placeholder="Add a reason..."/>
+    </sheet>
+</form>
+
+        </field>
+    </record>
+
+    <record id="action_public_holiday" model="ir.actions.act_window">
+        <field name="name">Public Holiday</field>
+        <field name="res_model">public.holiday</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<menuitem id="menu_public_holiday_root"
+          name="Public Holiday"
+          parent="hr_holidays.menu_hr_holidays_root"
+          sequence="30"/>
+
+<menuitem id="menu_public_holiday"
+          name="Public Holiday"
+          parent="menu_public_holiday_root"
+          action="action_public_holiday"
+          sequence="10"/>
+
+</odoo>

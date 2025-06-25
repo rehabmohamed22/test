@@ -1,0 +1,23 @@
+<odoo>
+    <record id="lab_test_form_view" model="ir.ui.view">
+        <field name="name">lab.test.form.view</field>
+        <field name="model">lab.test</field>
+        <field name="arch" type="xml">
+            <form string="Lab Test">
+                <header>
+                    <button name="%(lab_test_report)d" string="Print Report" type="action" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="test_name"/>
+                        <field name="test_result"/>
+                        <field name="normal_range"/>
+                        <field name="result_status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="external_layout_boxed" inherit_id="web.external_layout_boxed">
+        <xpath expr="//img[@t-if='company.logo']" position="replace">
+            <t t-if="o and o.partner_id.brand_id">
+                <img t-att-src="image_data_uri(o.partner_id.brand_id.logo)" alt="Logo"/>
+            </t>
+            <t t-else="">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="external_layout_bold" inherit_id="web.external_layout_bold">
+        <xpath expr="//img[@t-if='company.logo']" position="replace">
+            <t t-if="o and o.partner_id.brand_id">
+                <img t-att-src="image_data_uri(o.partner_id.brand_id.logo)" alt="Logo"/>
+            </t>
+            <t t-else="">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="external_layout_striped" inherit_id="web.external_layout_striped">
+        <xpath expr="//img[@t-if='company.logo']" position="replace">
+            <t t-if="o and o.partner_id.brand_id">
+                <img t-att-src="image_data_uri(o.partner_id.brand_id.logo)" alt="Logo"/>
+            </t>
+            <t t-else="">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//img[@t-if='company.logo']" position="replace">
+            <t t-if="o and o.partner_id.brand_id">
+                <img t-att-src="image_data_uri(o.partner_id.brand_id.logo)"
+                     style="max-height: 45px;"
+                     alt="Logo"/>
+            </t>
+            <t t-else="">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

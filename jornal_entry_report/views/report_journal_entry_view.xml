@@ -1,0 +1,18 @@
+<!-- report_action.xml -->
+<odoo>
+    <record id="action_report_journal_entry" model="ir.actions.report">
+        <field name="name">Journal Entry Report</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">jornal_entry.report_journal_entry</field>
+        <field name="report_file">jornal_entry.report_journal_entry</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+    </record>
+
+    <menuitem
+        id="menu_journal_entry_report"
+        name="Journal Entry Report"
+        parent="account.menu_finance_reports"
+        action="action_report_journal_entry"
+    />
+</odoo>

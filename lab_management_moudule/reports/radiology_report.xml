@@ -1,0 +1,23 @@
+<odoo>
+    <report
+        id="radiology_report"
+        model="lab.radiology"
+        string="Radiology Report"
+        report_type="qweb-pdf"
+        name="lab_management.radiology_report_template"
+        file="lab_management.radiology_report_template"
+    />
+
+    <template id="radiology_report_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Radiology Report</h2>
+                <p><strong>Patient:</strong> <t t-esc="doc.patient_id.name"/></p>
+                <p><strong>Doctor:</strong> <t t-esc="doc.doctor_id.name"/></p>
+                <p><strong>Radiology Type:</strong> <t t-esc="doc.radiology_name"/></p>
+                <p><strong>Report Description:</strong> <t t-esc="doc.result_description or 'Pending'"/></p>
+                <p><strong>Date:</strong> <t t-esc="doc.date_completed or 'Not Completed'"/></p>
+            </div>
+        </t>
+    </template>
+</odoo>

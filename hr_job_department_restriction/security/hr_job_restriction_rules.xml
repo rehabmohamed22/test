@@ -1,0 +1,16 @@
+<odoo>
+    <record id="hr_job_department_restriction_rule" model="ir.rule">
+        <field name="name">HR Job Department Restriction</field>
+        <field name="model_id" ref="hr.model_hr_job"/>
+        <field name="domain_force">
+            ['|', ('restricted_department_ids', '=', False), ('restricted_department_ids', 'in', user.employee_id.department_id.id)]
+
+        </field>
+
+        <field name="groups" eval="[(4, ref('base.group_user')), (4, ref('hr.group_hr_manager')), (4, ref('base.group_system'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+</odoo>

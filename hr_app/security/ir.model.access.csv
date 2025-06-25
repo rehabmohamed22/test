@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fetch_data,access_fetch_data,model_fetch_data,base.group_user,1,1,1,1
+access_hr_resignation,access_hr_resignation,model_hr_resignation,,1,1,1,1
+access_auth_token,access_auth_token,model_auth_token,,1,1,1,1
+access_hr_expense_request_portal,access_hr_expense_request_portal,model_hr_expense_request,base.group_portal,1,1,1,0
+access_hr_public_holiday,access_hr_public_holiday,model_hr_public_holiday,,1,1,1,1
+

@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_vehicle_purchase_order_form_inherit_installments" model="ir.ui.view">
+        <field name="name">vehicle.purchase.order.form.inherit.installments.board</field>
+        <field name="model">vehicle.purchase.order</field>
+        <field name="inherit_id" ref="vehicle_purchase.view_vehicle_purchase_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="replace">
+                <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="flex-grow: 1;">
+                        <field name="name"/>
+                    </div>
+                    <div style="flex-shrink: 0;">
+                        <field name="installment_status" widget="badge" class="oe_inline"
+                               style="font-size: 22px; padding: 8px 20px; font-weight: bold;
+                                      min-width: 140px; text-align: center;"/>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <button name="%(action_bulk_installment_payment)d"
+                        string="Bulk Installment Payment"
+                        type="action"
+                        class="btn btn-secondary"
+                        icon="fa-money"/>
+            </xpath>
+
+            <xpath expr="//field[@name='installment_board_ids']" position="before">
+    <div class="btn-group" style="margin-bottom: 10px;">
+        <button name="action_export_installments"
+                string="Export Installments"
+                type="object"
+                class="btn btn-outline-secondary"
+                icon="fa-download"/>
+        <button name="vehicle_purchase_custom.action_import_installments_wizard"
+                string="Import Installments"
+                type="action"
+                class="btn btn-outline-secondary"
+                icon="fa-upload"/>
+    </div>
+</xpath>
+
+
+            <xpath expr="//field[@name='installment_board_ids']/tree" position="replace">
+                <tree editable="bottom">
+                    <field name="date"/>
+                    <field name="amount" sum="Total"/>
+                    <field name="paid_amount" sum="Paid"/>
+                    <field name="remaining_amount" sum="Remaining"/>
+                    <field name="state"/>
+                </tree>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

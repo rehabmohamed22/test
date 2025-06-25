@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_accounting_form" model="ir.ui.view">
+        <field name="name">construction.accounting.form</field>
+        <field name="model">construction.accounting</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="project_id"/>
+                        <field name="cost"/>
+                        <field name="revenue"/>
+                        <field name="profit"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

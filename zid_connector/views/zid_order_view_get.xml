@@ -1,0 +1,49 @@
+<odoo>
+
+    <record id="view_zid_order_fetcher_form" model="ir.ui.view">
+        <field name="name">zid.order.fetcher.form</field>
+        <field name="model">zid.order.fetcher</field>
+        <field name="arch" type="xml">
+            <form string="Order Form">
+                <sheet>
+                    <header>
+                        <button string="Get Orders" type="object" name="action_fetch_orders" class="oe_highlight"/>
+                    </header>
+                    <!-- تم حذف فلاتر التاريخ والحالة -->
+                    <notebook>
+                        <page string="Orders">
+                            <field name="order_ids">
+                                <tree>
+                                    <field name="zid_order_id"/>
+                                    <field name="customer_name"/>
+                                    <field name="payment_status"/>
+                                    <field name="created_at"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Order Products">
+                            <field name="order_item_ids">
+                                <tree>
+                                    <field name="order_id"/>
+                                    <field name="product_name"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_zid_order" model="ir.actions.act_window">
+        <field name="name">Zid Orders</field>
+        <field name="res_model">zid.order.fetcher</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_zid_order_fetcher_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_zid_orders" name="Get Orders" parent="order_menu" action="action_zid_order" sequence="1"/>
+</odoo>

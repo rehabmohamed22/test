@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lab_patient,access_lab_patient,model_lab_patient,,1,1,1,1
+access_lab_doctor,access_lab_doctor,model_lab_doctor,,1,1,1,1
+access_lab_test,access_lab_test,model_lab_test,,1,1,1,1
+access_lab_test_request,access_lab_test_request,model_lab_test_request,,1,1,1,1
+access_lab_test_result,access_lab_test_result,model_lab_test_result,,1,1,1,1
+access_lab_test_wizard,access_lab_test_wizard,model_lab_test_wizard,,1,1,1,1
+access_lab_radiology_request,access_lab_radiology_request,model_lab_radiology_request,,1,1,1,1

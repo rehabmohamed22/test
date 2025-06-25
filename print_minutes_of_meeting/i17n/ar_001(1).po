@@ -1,0 +1,396 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* print_minutes_of_meeting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-06 09:28+0000\n"
+"PO-Revision-Date: 2025-02-06 12:40+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. module: print_minutes_of_meeting
+#: model:mail.template,body_html:print_minutes_of_meeting.email_template_minutes_of_meeting
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Hi  Team,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Please find the attached minutes of meeting of the\n"
+"                        <t t-if=\"object.name\">\n"
+"                            \"<span t-out=\"object.name or ''\">\n"
+"                            </span>\"\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Hi  Team,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        تجدون محضر اجتماع اللجنة المرفقة\n"
+"                        <t t-if=\"object.name\">\n"
+"                            \"<span t-out=\"object.name or ''\">\n"
+"                            </span>\"\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<span>No</span>"
+msgstr "<span>لا</span>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<span>Yes</span>"
+msgstr "<span>نعم</span>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Absent Members</strong>"
+msgstr "<strong>الأعضاء الغياب</strong>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Attendees</strong>"
+msgstr "<strong>الحضور</strong>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Conclusion Notes</strong>"
+msgstr "<strong>ملاحظات ختامية</strong>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Date &amp; Time</strong>"
+msgstr "<strong>التاريخ &amp; الوقت</strong>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Note Taker</strong>"
+msgstr "<strong>مدون الملاحظات</strong>"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "<strong>Responsible</strong>"
+msgstr "<strong>مسؤول</strong>"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__absent_member_ids
+msgid "Absent Member"
+msgstr "عضو غائب"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__absent_member_ids
+msgid "Absent members of the meeting"
+msgstr "الأعضاء الغائبون عن الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__action
+msgid "Action"
+msgstr "اجراء"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Action/ Decisions"
+msgstr "العمل / القرارات"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Actions / Decisions"
+msgstr "العمل / القرارات"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Actions/ Decisions"
+msgstr "العمل / القرارات"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__actions_ids
+msgid "Actions/Decisions"
+msgstr "العمل / القرارات"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__agenda_ids
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__agenda_item_id
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Agenda"
+msgstr "جدول الأعمال"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Agenda Items"
+msgstr "بنود جدول الأعمال"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_agenda__topic
+msgid "Agenda Topic"
+msgstr "موضوع جدول الأعمال"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__assigned_partner_ids
+msgid "Assigned Partners"
+msgstr "الشركاء المعينون"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Assigned To"
+msgstr "تم تعيينه ل"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model,name:print_minutes_of_meeting.model_calendar_event
+msgid "Calendar Event"
+msgstr "فعالية التقويم "
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Conclusion Notes"
+msgstr "ملاحظات ختامية"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Conclusion notes"
+msgstr "ملاحظات ختامية"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__notes
+msgid "Conclusions"
+msgstr "الاستنتاجات"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__create_uid
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__create_uid
+msgid "Created by"
+msgstr "تم إنشاؤها بواسطة"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__create_date
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__create_date
+msgid "Created on"
+msgstr "تم الإنشاء بتاريخ"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__deadline
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Deadline"
+msgstr "موعد التسليم"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__deadline
+msgid "Deadline for the action"
+msgstr "الموعد النهائي لهذا الإجراء"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__description
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_agenda__description
+msgid "Description of the Meeting"
+msgstr "وصف الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Description/Notes"
+msgstr "ملاحظات / وصف"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__is_discussed
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Discussed"
+msgstr "مناقشة"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__display_name
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__calendar_event_id
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__calendar_event_id
+msgid "Event"
+msgstr "حدث"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__id
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__is_user
+msgid "Is User"
+msgstr "هو المستخدم"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__is_user
+msgid "Is user or not"
+msgstr "هل هو مستخدم أم لا"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__write_uid
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__write_date
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model,name:print_minutes_of_meeting.model_meeting_actions
+msgid "Meeting Actions"
+msgstr "إجراءات الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model,name:print_minutes_of_meeting.model_meeting_agenda
+msgid "Meeting Agenda"
+msgstr "جدول أعمال الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Meeting Information"
+msgstr "معلومات الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Meeting Minutes"
+msgstr "محضر الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__notes
+msgid "Meeting conclusions"
+msgstr "استنتاجات الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.actions.report,name:print_minutes_of_meeting.action_minutes_of_meeting_report
+#: model:ir.model,name:print_minutes_of_meeting.model_report_print_minutes_of_meeting_report_mom_template
+#: model:mail.template,name:print_minutes_of_meeting.email_template_minutes_of_meeting
+msgid "Minutes of Meeting"
+msgstr "محضر الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:mail.template,subject:print_minutes_of_meeting.email_template_minutes_of_meeting
+msgid "Minutes of Meeting - \"{{ object.name }}\""
+msgstr "محضر الاجتماع - \"{{ اسم الكائن }}\""
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__note_taker_id
+msgid "Note Taker"
+msgstr "مدوّن الملاحظات"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__calendar_event_id
+msgid "Related event of the action"
+msgstr "الحدث ذو الصلة بالعمل"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Responsible"
+msgstr "مسؤول"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_actions__responsible_partner_id
+msgid "Responsible Partner"
+msgstr "الشريك المسؤول"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_calendar_event__responsible_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: print_minutes_of_meeting
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.view_calendar_event_form
+msgid "Send Meeting Minutes to Attendees"
+msgstr "إرسال محضر الاجتماع إلى الحضور"
+
+#. module: print_minutes_of_meeting
+#: model:mail.template,description:print_minutes_of_meeting.email_template_minutes_of_meeting
+msgid ""
+"Sent to attendees with minutes of meeting\n"
+"            "
+msgstr "يتم إرسالها إلى الحضور مع محضر الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_agenda__calendar_event_id
+msgid "The Calender Event"
+msgstr "حدث التقويم"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__responsible_partner_id
+msgid "The Responsible person for the action"
+msgstr "الشخص المسؤول عن الإجراء"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__description
+msgid "The action description"
+msgstr "وصف الإجراء"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__action
+msgid "The action took on the meeting"
+msgstr "اتخذ الإجراء في الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__agenda_item_id
+msgid "The agenda item"
+msgstr "بند جدول الأعمال"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_actions__assigned_partner_ids
+msgid "The assigned partners of the action"
+msgstr "الشركاء المعينون للعمل"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__actions_ids
+msgid "The meeting actions or decisions"
+msgstr "إجراءات أو قرارات الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__agenda_ids
+msgid "The meeting agendas"
+msgstr "جداول أعمال الاجتماع"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__note_taker_id
+msgid "The note taker"
+msgstr "مدون الملاحظات"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_calendar_event__responsible_user_id
+msgid "The person who is responsible for the event"
+msgstr "الشخص المسؤول عن الحدث"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,help:print_minutes_of_meeting.field_meeting_agenda__is_discussed
+msgid "The topic is discussed or not"
+msgstr "تمت مناقشة الموضوع أم لا"
+
+#. module: print_minutes_of_meeting
+#: model:ir.model.fields,field_description:print_minutes_of_meeting.field_meeting_agenda__topic
+#: model_terms:ir.ui.view,arch_db:print_minutes_of_meeting.report_mom_template
+msgid "Topic"
+msgstr "الموضوع"

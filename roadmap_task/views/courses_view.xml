@@ -1,0 +1,62 @@
+<odoo>
+
+    <record id="courses_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">courses</field>
+        </record>
+    <!-- Define the tree view -->
+    <record id="courses_view_tree" model="ir.ui.view">
+    <field name="name">courses tree view</field>
+    <field name="model">courses</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+            <field name="number_of_videos"/>
+            <field name="link" widget="url"/>
+            <field name="description"/>
+        </tree>
+    </field>
+</record>
+
+<record id="courses_view_form" model="ir.ui.view">
+    <field name="name">courses form view</field>
+    <field name="model">courses</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <div class="oe_title">
+                    <label for="name"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="link"/>
+                    <field name="number_of_videos"/>
+                </group>
+                <notebook>
+                    <page string="Course Description">
+                        <field name="description"/>
+                    </page>
+                    <page string="Enrolled Users">
+                        <field name="progress_ids" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+    <menuitem
+        id="courses_menu_item"
+        name="Courses"
+        parent="courses_root_menu"
+        action="courses_action"
+    />
+
+</odoo>

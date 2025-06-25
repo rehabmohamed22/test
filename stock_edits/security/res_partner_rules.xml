@@ -1,0 +1,8 @@
+<data>
+    <record id="rule_to_show_some_partners" model="ir.rule">
+        <field name="name">Show Some Partners</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="groups" eval="[Command.link(ref('stock_edits.group_some_partners'))]"/>
+        <field name="domain_force">[('employee', '=', False)]</field>
+    </record>
+</data>

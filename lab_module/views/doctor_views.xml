@@ -1,0 +1,37 @@
+<odoo>
+    <record id="action_lab_doctor" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">lab.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_lab_doctor_form" model="ir.ui.view">
+        <field name="name">lab.doctor.form</field>
+        <field name="model">lab.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="specialization"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="hospital"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lab_doctor_tree" model="ir.ui.view">
+        <field name="name">lab.doctor.tree</field>
+        <field name="model">lab.doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctors">
+                <field name="name"/>
+                <field name="specialization"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

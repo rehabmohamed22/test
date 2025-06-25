@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zid_order_sync,zid.order.sync,model_zid_order_sync,,1,1,1,1
+access_zid_settings,zid.settings,model_zid_settings,base.group_system,1,1,1,1
+access_zid_customer,zid.customer,model_zid_customer,,1,1,1,1
+access_zid_customer_view,zid.customer.view,model_zid_customer_view,,1,1,1,1
+access_zid_customer_fetch,zid.customer.fetch,model_zid_customer_fetch,,1,1,1,1
+access_zid_order_item,zid.order.item,model_zid_order_item,base.group_user,1,1,1,1
+access_zid_order_fetcher,zid.order.fetcher,model_zid_order_fetcher,base.group_user,1,1,1,1
+access_zid_order,zid.order,model_zid_order,base.group_user,1,1,1,1
+access_zid_product,access_zid_product,model_zid_product,base.group_user,1,1,1,1
+access_zid_product_view,access_zid_product_view,model_zid_product_view,base.group_user,1,1,1,1
+access_zid_order_sync,zid.order.sync,model_zid_order_sync,,1,1,1,1

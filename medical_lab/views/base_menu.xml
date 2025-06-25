@@ -1,0 +1,19 @@
+<odoo>
+        <menuitem
+                id="medical_lab_root"
+                name="Medical Lab"
+        />
+
+    <menuitem
+            id="medical_lab_test_result_menu"
+            name="Lab Test Results"
+            parent="medical_lab_root"
+              action="action_lab_test_result"/>
+
+    <menuitem
+       id="configration_menu"
+       name="Configration"
+       parent="medical_lab_root"
+    />
+
+</odoo>

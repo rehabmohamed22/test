@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_expense_request_form" model="ir.ui.view">
+        <field name="name">hr.expense.request.form</field>
+        <field name="model">hr.expense.request</field>
+        <field name="arch" type="xml">
+            <form string="طلب صرف">
+                <group>
+                    <field name="employee_id"/>
+                    <field name="amount"/>
+                    <field name="reason"/>
+                    <field name="request_date"/>
+                    <field name="state"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_expense_request_tree" model="ir.ui.view">
+        <field name="name">hr.expense.request.tree</field>
+        <field name="model">hr.expense.request</field>
+        <field name="arch" type="xml">
+            <tree string="طلبات الصرف">
+                <field name="employee_id"/>
+                <field name="amount"/>
+                <field name="request_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_expense_request" model="ir.actions.act_window">
+        <field name="name">طلبات الصرف</field>
+        <field name="res_model">hr.expense.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_expense_request_root"
+              name="طلبات الموظفين"
+              parent="hr.menu_hr_root"
+              sequence="110"/>
+
+    <menuitem id="menu_expense_request"
+              name="طلبات الصرف"
+              parent="menu_expense_request_root"
+              action="action_expense_request"
+              sequence="10"/>
+</odoo>

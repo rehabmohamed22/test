@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_sale_report_wizard_form" model="ir.ui.view">
+        <field name="name">sale.report.wizard.form</field>
+        <field name="model">sale.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Sale Report">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="partner_id"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Generate Report" class="btn-primary" type="object" name="action_generate_report"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_report" model="ir.actions.report">
+        <field name="name">Sales Report</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_wizardd.sale_report_template</field>
+        <field name="print_report_name">'Sales_Report_' + (object.partner_id.name or 'All')</field>
+    </record>
+
+    <record id="action_sale_report_wizard" model="ir.actions.act_window">
+        <field name="name">Sale Report Wizard</field>
+        <field name="res_model">sale.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_sale_report_wizard_settings"
+              name="Sale Report Wizard"
+              parent="sale.menu_sale_config"
+              action="action_sale_report_wizard"/>
+</odoo>

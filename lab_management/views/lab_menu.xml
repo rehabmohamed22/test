@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem id="menu_lab_management_root"
+              name="Lab Management"
+              sequence="1"
+              action="action_select_lab_type_wizard"/>
+
+    <menuitem id="menu_patient_management"
+              name="Patient Management"
+              parent="menu_lab_management_root"
+              sequence="10"/>
+
+    <menuitem id="menu_lab_tests"
+              name="Laboratory Tests"
+              parent="menu_lab_management_root"
+              sequence="20"/>
+
+    <menuitem id="menu_imaging_tests"
+              name="Imaging Tests"
+              parent="menu_lab_management_root"
+              sequence="30"/>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_operation_wizard_form" model="ir.ui.view">
+        <field name="name">operation.wizard</field>
+        <field name="model">operation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Operations">
+                <sheet>
+                    <group>
+                        <field name="operation_ids" widget="many2many_tags"/>
+                        <field name="bom_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="action_confirm" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     <record model="ir.actions.act_window" id="open_workcenter_wizard">
+        <field name="name">Operation Wizard</field>
+        <field name="res_model">operation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

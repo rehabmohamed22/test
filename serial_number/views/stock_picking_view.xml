@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- تعديل واجهة Stock Picking Form -->
+    <record id="view_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- إضافة الحقل amount_in_words بعد حقل state -->
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="amount_in_words" string="المبلغ بالكلمات" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

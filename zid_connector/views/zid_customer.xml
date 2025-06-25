@@ -1,0 +1,43 @@
+<!-- views/zid_customer_view.xml -->
+
+<odoo>
+    <record id="zid_customer_display_form" model="ir.ui.view">
+        <field name="name">zid.customer.view.form</field>
+        <field name="model">zid.customer.view</field>
+        <field name="arch" type="xml">
+            <form string="Zid Customers View" create="false" edit="false">
+                <header>
+                    <button name="fetch_zid_customers" type="object" string="Fetch Customers from Zid" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="العملاء">
+                            <field name="customer_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="mobile"/>
+                                    <field name="nickname"/>
+                                    <field name="order_counts"/>
+                                    <field name="city"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_zid_customer_view_form" model="ir.actions.act_window">
+        <field name="name">Zid Customers View</field>
+        <field name="res_model">zid.customer.view</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="zid_customer_display_form"/>
+        <field name="target">current</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="customer_menu" name="Customers" parent="zid_root_menu" />
+    <menuitem id="menu_zid_customer_view" name="Get All Customers" parent="customer_menu" action="action_zid_customer_view_form"/>
+</odoo>
+
